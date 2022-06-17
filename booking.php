@@ -1,12 +1,29 @@
 
 <?php 
 require_once 'connect.php';
-echo date("m/d/Y h:i:s a", time());
+//echo date("m/d/Y h:i:s a", time());
 $bookingcollection = $client->pdmds->booking;
 
-$booking_data = $bookingcollection->find();
-//var_dump($cursor);
-echo $bookingcollection->count()+1;
+
+// $sbooking_data = $bookingcollection->aggregate();
+
+$filter  = [];
+$options = ['sort' => ['room_id' => 1]]; // 1 desc , -1 asc
+//$cursor = $collection->find ()->sort(array('timestamp'=>-1))->limit(10);
+
+// $client = new MongoDB\Client('mongodb://localhost');
+// $client->mydb->mycollection->find($filter, $options);
+
+//hotel yang paling laris 
+
+//hotel yang paling sering dicancel
+
+$filter = array('hotel_id' => '6');
+
+ $booking_sdata = $bookingcollection->count($filter);
+ echo $booking_sdata;
+
+ $booking_data = $bookingcollection->find($filter,$options);
 
 foreach($booking_data as $item):
     echo "<div class='card text-center' style='width: 28rem;'>";
@@ -70,4 +87,4 @@ foreach($booking_data as $item):
     echo "<br>";
   endforeach;
 
-?>
+// ?>

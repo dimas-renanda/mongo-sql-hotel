@@ -5,6 +5,8 @@ require_once 'connect.php';
 $hotelcollection = $client->pdmds->hotel;
 
 $hotel_data = $hotelcollection->find();
+
+
 //var_dump($cursor);
 echo $hotelcollection->count()+1;
 

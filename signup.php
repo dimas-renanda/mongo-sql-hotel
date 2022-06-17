@@ -11,9 +11,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
       if(empty(trim($_POST["first_name"]))){
         $first_name_err = "Mohon isi Nama Lengkap Anda .";     
     }
-    elseif(strlen(trim($_POST["first_name"])) < 5){
-        $first_name_err = "Mohon Isi Nama Lengkap Dengan Benar";
-    }
     else{
         $first_name = trim($_POST["first_name"]);
     }
@@ -168,7 +165,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 // Redirect to login page
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Akun Berhasil dibuat!");'; 
-                echo 'window.location.href = "mail_register.php";';
+                echo 'window.location.href = "login.php";';
                 echo '</script>';
             } else{
                 echo "Something went wrong. Please try again later.";
@@ -206,32 +203,32 @@ background-image: url("/SODA/uploads/bg.jpg");
 
 
 }
-        .wrapper{ width: 1000px; padding: 20px; }
+        .wrapper{ width: 600px; padding: 30px;  background-color: lightslategray;}
     </style>
 </head>
 <body>
 <div class="container-fluid  d-flex justify-content-center">
-    <div class="wrapper bg-dark text-white ">
+    <div class="wrapper text-white">
     <?php 
             if (!empty($first_name_err))
             {
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Cek Kembali Nama Lengkap Anda!");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             }
             else if(!empty($last_name_err))
             {
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Cek Kembali last_name Anda!");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             }
             else if (!empty($email_err))
             {
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Cek Kembali Email Anda!");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             }
 
@@ -239,14 +236,14 @@ background-image: url("/SODA/uploads/bg.jpg");
             {
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Cek Kembali Password Anda!");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             }
             else if (!empty($confirm_password_err))
             {
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Cek Kembali konfirmasi Password Anda!");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             }
 
@@ -256,7 +253,7 @@ background-image: url("/SODA/uploads/bg.jpg");
             
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Mohon isi Status Anda !");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             
             }
@@ -268,12 +265,12 @@ background-image: url("/SODA/uploads/bg.jpg");
                 {
                     echo '<script type="text/javascript">'; 
                     echo 'alert("Nomor Handphone Minimal > 9 digit angka!");'; 
-                    echo 'window.location.href = "users_register.php";';
+                    echo 'window.location.href = "signup.php";';
                     echo '</script>';
                 }
                 echo '<script type="text/javascript">'; 
                 echo 'alert("isi Nomor Handphone yang benar memiliki > 9 digit angka!");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             
             }
@@ -284,7 +281,7 @@ background-image: url("/SODA/uploads/bg.jpg");
             
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Mohon isi Asal country_origin Anda!");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             
             }
@@ -294,7 +291,7 @@ background-image: url("/SODA/uploads/bg.jpg");
             {
                 echo '<script type="text/javascript">'; 
                 echo 'alert("Mohon Menyetujui Peraturan Smart Kost dengan klik box pada form !");'; 
-                echo 'window.location.href = "users_register.php";';
+                echo 'window.location.href = "signup.php";';
                 echo '</script>';
             }
 
@@ -303,16 +300,15 @@ background-image: url("/SODA/uploads/bg.jpg");
 
 
 <div class="text-center">
-<img src="/SODA/uploads/sodalogo.png" alt="Logo">   
+ 
 <br>
 <br>
             <br>
 </div>
-<h2>FORM PENGHUNI KOST</h2>
-<p>Mohon Mengisi form dengan benar untuk membuat akun.</p>
+<h2>Guest Signup</h2>
         <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($first_name_err)) ? 'has-error' : ''; ?>">
-                <label>First name (Sesuai KTP)</label>
+                <label>First name </label>
                 <input type="text" name="first_name" class="form-control" value="<?php echo $first_name; ?>"required>
                 <span class="help-block"><?php echo $first_name_err; ?></span>
             </div>   
@@ -337,6 +333,7 @@ background-image: url("/SODA/uploads/bg.jpg");
                 <input type="password" name="confirm_password" class="form-control" value="<?php echo $confirm_password; ?>"required>
                 <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
+            <br>
             <div class="form-group <?php echo (!empty($status_err)) ? 'has-error' : ''; ?>">
                 <label>Gender</label>
                 <select id="selectType" name="status" class = "custom-select">
@@ -348,13 +345,17 @@ background-image: url("/SODA/uploads/bg.jpg");
                 <span class="help-block"><?php echo $status_err; ?></span>
                
             </div>
+
+            <br>
+
             <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
                 <label>No Handphone</label>
                 <input type="text" name="confirm_phone" class="form-control" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" value="<?php echo $phone; ?>"required>
                 <span class="help-block"><?php echo $phone_err; ?></span>
             </div>
+            <br>
             <div class="form-group <?php echo (!empty($country_origin_err)) ? 'has-error' : ''; ?>">
-                <label>country_origin</label>
+                <label>Country</label>
                 <select id="selectType" class = "custom-select" name="country_origin" >
                 <option value="">--Pilihan--</option> 
                 <?php
@@ -371,14 +372,17 @@ background-image: url("/SODA/uploads/bg.jpg");
                 </select>
                 
             </div>
+            <br>
             <div class="form-group">
-            <input type="checkbox" name="agree" id="agree" value="agree" required/> <label for='agree'>Menyetujui <a target="_blank" rel="noopener noreferrer"  href="#">Peraturan</a>.</label>
+            <input type="checkbox" name="agree" id="agree" value="agree" required/> <label for='agree'>Menyetujui syarat <a target="_blank" rel="noopener noreferrer"  href="#">Peraturan</a>.</label>
             </div>
+            <br>
+            <p>Sudah Memiliki Akun? <a href="login.php">Login disini</a>.</p>
             <div class="form-group">
-                <input type="submit" class="btn btn-info" value="Submit">
-                <input type="reset" class="btn btn-warning" value="Reset">
+                <input type="submit" class="btn btn-secondary" value="Submit">
+                <input type="reset" class="btn btn-dark" value="Reset">
             </div>
-            <p>Sudah Memiliki Akun? <a href="users_login.php">Login disini</a>.</p>
+
             </form>  
             
     </div>  

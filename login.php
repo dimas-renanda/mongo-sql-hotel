@@ -98,14 +98,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         .wrapper {
             width: 350px;
             padding: 20px;
+            background-color: lightslategray;
         }
     </style>
 </head>
 
 <body>
     <div class="container py-5 d-flex justify-content-center ">
-        <div class=" wrapper bg-dark text-white ">
-            <img src="/SODA/uploads/sodalogo.png" alt="Logo" width="310" height="70" style="float:center">
+        <div class=" wrapper text-white ">
+            <h3>Login</h1>
             <br>
             <br>
             <form method="post">
@@ -113,19 +114,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <i class="fas fa-user"> Username</i><input type="text" name="username" class="form-control" placeholder="Email/Username">
                     <span class="help-block bg-danger"><?php echo $username_err; ?></span>
                 </div>
+                <br>
                 <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
                     <i class="fas fa-key"> Password</i><input type="password" name="password" class="form-control" placeholder="Password">
                     <span class="help-block bg-danger"><?php echo $password_err;
                                                         echo "<br>"; ?></span>
                     <br>
-                    <p>Belum Memiliki Akun ? <a href="users_register.php" class="text-warning">Daftar Sekarang</a>.</p>
+                    <p>Belum Memiliki Akun ? <a href="signup.php" class="text-warning">Daftar Sekarang</a>.</p>
                     <br>
-                    <p>Forgot Password? <a href="user_reset_soda.php" class="text-warning">Reset Password</a>.</p>
+                    <p>Forgot Password? <a href="signup.php" class="text-warning">Reset Password</a>.</p>
             </div> 
                 <div class="form-group">
-                    <input type="submit" class="form-control btn btn-success" value="Login"></input>
+                    <input type="submit" class="form-control btn btn-dark" value="Login"></input>
                     <br> <br>
-                    <a href="guest_welcome.php " class="form-control btn btn-info">Masuk Sebagai Guest</a> <br> 
+                    <a href="login.php " class="form-control btn btn-secondary">View</a> <br> 
 
                 </div>
 

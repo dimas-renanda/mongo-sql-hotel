@@ -1,7 +1,7 @@
 
 <?php 
 require_once 'connect.php';
-
+echo date("m/d/Y h:i:s a", time());
 $bookingcollection = $client->pdmds->booking;
 
 $booking_data = $bookingcollection->find();
@@ -30,9 +30,14 @@ foreach($booking_data as $item):
        $bdatetime = $utcdatetime->toDateTime();
 
        foreach($item['checkin_date'] as $attr)
-       {$cdatenya = $attr;}
-       $utcdatetime = new MongoDB\BSON\UTCDateTime($cdatenya);
-       $cdatetime = $utcdatetime->toDateTime();
+       {$ckdatenya = $attr;}
+       $utcdatetime = new MongoDB\BSON\UTCDateTime($ckdatenya);
+       $ckdatetime = $utcdatetime->toDateTime();
+
+       foreach($item['checkout_date'] as $attr)
+       {$cktdatenya = $attr;}
+       $utcdatetime = new MongoDB\BSON\UTCDateTime($cktdatenya);
+       $cktdatetime = $utcdatetime->toDateTime();
 
     //    var_dump($datetime->format('r'));
     //    var_dump($datetime->format('U.u'));
@@ -40,10 +45,10 @@ foreach($booking_data as $item):
     //    var_dump($datetime->format('M-d-Y'));
        
        echo '<label>booking Date Booked : </label> <span>'.$bdatetime->format('M-d-Y').' </span><br><br>';
-       echo '<label>booking Checkin Date : </label> <span>'.$cdatetime->format('M-d-Y').' </span><br><br>';
+       echo '<label>booking Checkin Date : </label> <span>'.$ckdatetime->format('M-d-Y').' </span><br><br>';
        echo '<label>Number of night : </label> <span>'.$item['number_of_night'].' </span><br><br>';
        echo '<label>Booking Status : </label> <span>'.$item['booking_status'].' </span><br><br>';
-       echo '<label>Checkout_Date : </label> <span>'.$item['checkout_date'].' </span><br><br>';
+       echo '<label>Checkout_Date : </label> <span>'.$cktdatetime->format('M-d-Y').' </span><br><br>';
 
        echo '<label>Special Req : </label> <span>'.$item['special_req'].' </span><br><br>';
 

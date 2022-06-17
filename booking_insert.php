@@ -16,7 +16,17 @@ $myArray = ['person'];
 $arraynya=array('adult' => '3','child' => '2');
 
 // echo $myArray;
-$orig_date = new DateTime('2016-06-27');
+$t=time();
+//echo($t . "<br>");
+$datenya = date("Y-m-d",$t);
+$outdatenya = date("Y-m-d",$t);
+
+
+$orig_date = new DateTime($datenya);
+$out_orig_date = new DateTime($outdatenya);
+$out_orig_date->modify('+1 day');
+
+$chekin_date = new DateTime('2022-06-17');
 //$orig_date=$orig_date->getTimestamp();
 
 $insertOneResult = $collection->insertOne([
@@ -30,11 +40,11 @@ $insertOneResult = $collection->insertOne([
     'person' => $arraynya,
     'date_booked' => new MongoDB\BSON\UTCDateTime($orig_date),
 
-    'checkin_date' => new MongoDB\BSON\UTCDateTime(strtotime("2019-01-15 00:00:00")),
+    'checkin_date' => new MongoDB\BSON\UTCDateTime($chekin_date),
     'number_of_night' => '1',
     'booking_status' => 'Accepted',
     'special_req' => '-',
-    'checkout_date' => new MongoDB\BSON\UTCDateTime(new DateTime('2016-07-27')),
+    'checkout_date' => new MongoDB\BSON\UTCDateTime($out_orig_date),
 
     
 
@@ -60,6 +70,9 @@ $insertOneResult = $collection->insertOne([
  printf("Inserted %d document(s)\n", $insertOneResult->getInsertedCount());
  
  var_dump($insertOneResult->getInsertedId());
+
+
+
 
 
 

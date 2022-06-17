@@ -1,25 +1,6 @@
 <?php 
 require_once 'connect.php';
 
-function getNextSequence($name)
-{
-    $collection = $client->pdmds->hotel;
-    $result =  $collection->findAndModify(
-        ['_id' => $name],
-        ['$inc' => ['seq' => 1]],
-        ['seq' => true],
-        ['new' => true, 'upsert' => true]
-    );
-    if (isset($result['seq']))
-    {
-        return $result['seq'];
-    }
-    else
-    {
-        return false;
-    }
-}
-
 $collection = $client->pdmds->hotel;
 
 var_dump($collection->count());

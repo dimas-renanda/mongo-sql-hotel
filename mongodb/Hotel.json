@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "6296e345c9acad1f9f0b3de4"
+  },
+  "hotel_id": 1,
+  "hotel_type": "Resort",
+  "hotel_name": "Aston",
+  "country_code": "SGP"
+},{
+  "_id": {
+    "$oid": "6296e4eec9acad1f9f0b3de9"
+  },
+  "hotel_id": 2,
+  "hotel_type": "Resort",
+  "hotel_name": "Mulia",
+  "country_code": "DEU"
+},{
+  "_id": {
+    "$oid": "6296e550c9acad1f9f0b3dee"
+  },
+  "hotel_id": 3,
+  "hotel_type": "City",
+  "hotel_name": "Crowne",
+  "country_code": "IRE"
+},{
+  "_id": {
+    "$oid": "6296e61ec9acad1f9f0b3df3"
+  },
+  "hotel_id": 4,
+  "hotel_type": "City",
+  "hotel_name": "Ibis",
+  "country_code": "AUS"
+},{
+  "_id": {
+    "$oid": "6296e63ec9acad1f9f0b3df4"
+  },
+  "hotel_id": 5,
+  "hotel_type": "Resort",
+  "hotel_name": "Apurva",
+  "country_code": "CHN"
+},{
+  "_id": {
+    "$oid": "6296e653c9acad1f9f0b3df5"
+  },
+  "hotel_id": 6,
+  "hotel_type": "Resort",
+  "hotel_name": "Discovery",
+  "country_code": "INA"
+}]

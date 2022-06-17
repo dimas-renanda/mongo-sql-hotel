@@ -1,0 +1,34 @@
+[{
+  "_id": {
+    "$oid": "6296e662c9acad1f9f0b3df8"
+  },
+  "id_booking": "B_06012022",
+  "first_name": "Kelvin",
+  "last_name": "Marcellinus",
+  "email": "kelvinhalo@gmail.com",
+  "phone": {
+    "$numberLong": "87754112020"
+  },
+  "room_id": 535,
+  "date_booked": {
+    "$timestamp": {
+      "t": 1654056887,
+      "i": 1
+    }
+  },
+  "checkin_date": {
+    "$timestamp": {
+      "t": 1654056887,
+      "i": 2
+    }
+  },
+  "checkput_date": {
+    "$timestamp": {
+      "t": 1654056887,
+      "i": 3
+    }
+  },
+  "number_of_night": 1,
+  "booking_status": "accepted",
+  "special_req": "minta deket kolam renang"
+}]

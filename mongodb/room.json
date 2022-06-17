@@ -1,0 +1,51 @@
+[{
+  "_id": {
+    "$oid": "6299fb7fa68aa3c851b86dfb"
+  },
+  "hotel_id": 5,
+  "room_number": 106,
+  "room_type": "Superior",
+  "room_status": "Not Available",
+  "room_rate": 500000,
+  "avb_on": "21-06-2022",
+  "room_notes": []
+},{
+  "_id": {
+    "$oid": "6299fd58a68aa3c851b86e28"
+  },
+  "hotel_id": 2,
+  "room_number": 200,
+  "room_type": "Deluxe",
+  "room_status": "Available",
+  "room_rate": 1000000,
+  "avb_on": "0",
+  "room_notes": [
+    "Air panas"
+  ]
+},{
+  "_id": {
+    "$oid": "629dba870518052b2c0da3f6"
+  },
+  "hotel_id": "4",
+  "room_number": "88",
+  "room_type": "Mantap",
+  "room_status": "1",
+  "room_rate": "5000000",
+  "avb_on": 0,
+  "room_notes": [
+    "kabel rusak"
+  ]
+},{
+  "_id": {
+    "$oid": "629dcf7b0518052b2c0da3f9"
+  },
+  "hotel_id": "4",
+  "room_number": "88",
+  "room_type": "Mantap",
+  "room_status": "1",
+  "room_rate": "5000000",
+  "avb_on": 0,
+  "room_notes": [
+    "kabel rusak"
+  ]
+}]

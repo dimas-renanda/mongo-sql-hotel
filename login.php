@@ -1,12 +1,12 @@
 <?php
+require_once "connect.php";
 
-session_start();
 
 if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
     header("location: index.php");
     exit;
 }
-require_once "connect.php";
+
 
 
 $username = $password = "";
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($username_err) && empty($password_err)) {
-        $sql = "SELECT id , first_name,password FROM guest WHERE first_name = ? OR email = ? LIMIT 1";
+        $sql = "SELECT id , email,password FROM guest WHERE first_name = ? OR email = ? LIMIT 1";
         if ($stmt = mysqli_prepare($link, $sql)) {
             mysqli_stmt_bind_param($stmt, "ss", $param_username, $param_username);
 
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;
+                            $_SESSION["email"] = $username;
 
                             header("location: index.php");
                         } else {

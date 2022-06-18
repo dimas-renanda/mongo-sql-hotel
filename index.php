@@ -1,9 +1,14 @@
+<?php 
+require_once 'connect.php'; ?>
 <html>
 <head>
 
 </head>
 <body>
   <div class="container">
+    
+    <?= $_SESSION['id']; ?>
+    <?= $_SESSION['email']; ?>
   <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative">
   <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
     <div class="col hp">
@@ -58,7 +63,7 @@
             <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link">reviews</a></span>
           </div>
           <h5 class="card-title">
-            <a target="_blank" href="#">Razer Blade 15 Base Gaming Laptop 2020: Intel Core i7-10750H 6-Core, NVIDIA GeForce GTX 1660 Ti, 15.6" FHD 1080p 120Hz, 16GB RAM, 256GB SSD, CNC Aluminum, Chroma RGB Lighting, Black</a>
+            <a target="_blank" href="#">Razer Blade 15 </a>
           </h5>
 
           <div class="d-grid gap-2 my-4">
@@ -94,7 +99,7 @@
             <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link">reviews</a></span>
           </div>
           <h5 class="card-title">
-            <a target="_blank" href="#">Lenovo Legion 5 Gaming Laptop, 15.6" FHD (1920x1080) IPS Screen, AMD Ryzen 7 4800H Processor, 16GB DDR4, 512GB SSD, NVIDIA GTX 1660Ti, Windows 10, 82B1000AUS, Phantom Black</a>
+            <a target="_blank" href="#">Lenovo Legion 5 </a>
           </h5>
 
           <div class="d-grid gap-2 my-4">
@@ -130,7 +135,7 @@
             <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link">reviews</a></span>
           </div>
           <h5 class="card-title">
-            <a target="_blank" href="#">MSI GL66 Gaming Laptop: 15.6" 144Hz FHD 1080p Display, Intel Core i7-11800H, NVIDIA GeForce RTX 3070, 16GB, 512GB SSD, Win10, Black (11UGK-001)</a>
+            <a target="_blank" href="#">MSI GL66 Gaming </a>
           </h5>
 
           <div class="d-grid gap-2 my-4">
@@ -159,7 +164,7 @@
 </body>
 </html>
 <?php 
-require_once 'connect.php';
+
 
 $roomcollection = $client->pdmds->room;
 

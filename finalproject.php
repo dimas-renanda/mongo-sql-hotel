@@ -1,9 +1,5 @@
 <?php
-require 'autoload.php';
-//require 'fusioncharts/fusioncharts.php';
-$client = new MongoDB\Client(
-'mongodb://127.0.0.1:27017'
-);
+require_once'connect.php';
 
 function gethotelname($x)
 {
@@ -13,9 +9,9 @@ function gethotelname($x)
   $hotel_data = $hotelcollection->find($match);
   foreach($hotel_data as $item)
   {
-    $hasil = $item['hotel_name'];
+    $hasile = $item['hotel_name'];
   }
-  return $hasil;
+  return $hasile;
 }
 
 function newgethotelname()
@@ -299,13 +295,24 @@ function newgethotelname()
         }
 
         //hotel yang kelasnya standart (500.000-1.000.000)
-        $budgeted=$dbroom->find(array('room_rate'=> array('$gt'=>500000) && array('$lt'=>999000) ));
+        $budgeted=$dbroom->find(array('room_rate'=> array('$gt'=>499000) && array('$lt'=>999000) ));
         echo"<h3>Hotel yang kamarnya menengah </h3>";
         foreach($budgeted as $xx){
             $name_hotel=gethotelname($xx['hotel_id']);
             echo "<h4>nama hotel : ".$name_hotel."  </h4>";
             echo "<h4>tipe kamar : ".$xx['room_type']."  </h4>";
             echo "<h4>harganya : ".$xx['room_rate']."  </h4>";
+
+        }
+
+        //hotel yang kelasnya murah
+        $murmer=$dbroom->find(array('room_rate'=> array('$lt'=>499000) ));
+        echo"<h3>Hotel yang kamarnya murah </h3>";
+        foreach($murmer as $fx){
+            $name_hotel=gethotelname($fx['hotel_id']);
+            echo "<h4>nama hotel : ".$name_hotel."  </h4>";
+            echo "<h4>tipe kamar : ".$fx['room_type']."  </h4>";
+            echo "<h4>harganya : ".$fx['room_rate']."  </h4>";
 
         }
 

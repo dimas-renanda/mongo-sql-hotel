@@ -76,21 +76,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="fa5/css/all.css" rel="stylesheet">
-    <!--load all styles -->
-    <script src="pace/pace.js"></script>
-    <link href="pace/themes/silver/pace-theme-flash.css" rel="stylesheet" />
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-
 
     <style type="text/css">
         body {
 
             font: 14px sans-serif;
-            background-image: url("/SODA/uploads/bg.jpg");
             background-repeat: no-repeat;
             background-size: cover;
             background-position: center;
+
+  background-color: #ccc;
 
 
         }
@@ -120,14 +115,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <span class="help-block bg-danger"><?php echo $password_err;
                                                         echo "<br>"; ?></span>
                     <br>
-                    <p>Belum Memiliki Akun ? <a href="signup.php" class="text-warning">Daftar Sekarang</a>.</p>
+                    <p>Signup <a href="signup.php" class="text-warning">Here</a>.</p>
                     <br>
-                    <p>Forgot Password? <a href="signup.php" class="text-warning">Reset Password</a>.</p>
             </div> 
                 <div class="form-group">
                     <input type="submit" class="form-control btn btn-dark" value="Login"></input>
                     <br> <br>
-                    <a href="login.php " class="form-control btn btn-secondary">View</a> <br> 
+                    <a href="index.php " class="form-control btn btn-secondary">View</a> <br> 
 
                 </div>
 

@@ -1,32 +1,16 @@
+<?php 
+require_once 'connect.php'; ?>
 <html>
 <head>
+    <?php   require_once 'navbar.php'; ?>
 </head>
 <body>
   <?php 
-  require_once 'navbar.php';
+
 $roomcollection = $client->pdmds->room;
-
-// $filter = ['match' => ['room_status' => 'Available']];
-// $options = ['sort' => ['hotel_id' => -1]];
-// $room_data = $roomcollection->find($filter,$options);
-
-
-//create the aggregation
-//create the Match on clothing-category = shoes or brand = nike AND size 37
-// $ops = array(
-//   array(
-//       '$match'  => array('$or' => array(array("room_status" => 'Available'),
-//           array("brand" => 'nike')),
-//           '$and' => array(array("size" => '37'))
-//       ))
-// );
-
-$search = array(
-  array('$match'  => array("room_status" => 'Available'))
-);
-
-$room_data = $roomcollection->aggregate($search);
-
+$filter = [];
+$options = ['sort' => ['hotel_id' => -1]];
+$room_data = $roomcollection->find($filter,$options);
 //var_dump($cursor);
 
 // function gethotelname($x)
@@ -57,28 +41,10 @@ function newgethotelname($x)
 return $hname[$x];
 }
 
-function gethoteltype($x)
-{
-  $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
-  $hotelcollection = $clientfunction->pdmds->hotel;
-  $hotel_data = $hotelcollection->find();
-  foreach($hotel_data as $item)
-    {
-      //echo $item['hotel_id'],$item['hotel_name'];
-      $hname [$item['hotel_id']] = $item['hotel_type'];
-    };
-    //var_dump($hname);
-
-return $hname[$x];
-}
-
 //newgethotelname(6);
 
 echo '<div class="container py-5">';
-if (!empty($_SESSION['email']))
-{
-  echo '<p> hi, ' ,$_SESSION['email'],'<p>';
-}
+echo 'All Room';
   echo '<div class="row">';
 
   foreach($room_data as $item):
@@ -87,22 +53,19 @@ if (!empty($_SESSION['email']))
         <div class="custom-column-header">'.newgethotelname($item['hotel_id']).'</div>
         <div class="custom-column-content">
           <ul class="list-group">
-          <li class="list-group-item"><i class="fa fa-check"></i>'.gethoteltype($item['hotel_id']).'</li>
             <li class="list-group-item"><i class="fa fa-check"></i>'.$item['room_type'].'</li>
             <li class="list-group-item"><i class="fa fa-check"></i>'.$item['room_number'].'</li>
             <li class="list-group-item"><i class="fa fa-check"></i>' .$item['room_status'].'</li>
             <li class="list-group-item"><i class="fa fa-check"></i>' .$item['room_rate'].'</li>';
             error_reporting(E_ALL ^ E_WARNING); 
-              // foreach($item['room_notes'] as $note):
-              //echo '<label>Room Notes : </label> <span>'.$note.' </span><br><br><hr>';
-            //echo '<li class="list-group-item"><i class="fa fa-check"></i> '.$note.'</li>';
-           //endforeach;
-           $hidnya = $item['hotel_id'];
-           $ridnya = $item['room_number'];
-           $txturl = 'booking_insert.php?ridclicked='.$ridnya.'&hidclicked='.$hidnya;
+            
+               foreach($item['room_notes'] as $note):
+          //         //echo '<label>Room Notes : </label> <span>'.$note.' </span><br><br><hr>';
+            echo '<li class="list-group-item"><i class="fa fa-check"></i> '.$note.'</li>';
+           endforeach;
             echo '</ul>
         </div>
-        <div class="custom-column-footer"><a href="'.$txturl.'"><button class="btn btn-primary btn-lg">Insert to book</button></a></div>
+        <div class="custom-column-footer"><button class="btn btn-primary btn-lg">Click here</button></div>
       </div>
     </div>';
   endforeach;
@@ -115,6 +78,9 @@ echo '
 </body>
 <footer>
 <style>
+  body {
+  background-color: #ccc;
+}  
 
 .custom-column {  
   background-color: #eee;;

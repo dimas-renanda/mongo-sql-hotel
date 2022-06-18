@@ -60,31 +60,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link href="fa5/css/all.css" rel="stylesheet">
-    <!--load all styles -->
-    <script src="pace/pace.js"></script>
-    <link href="pace/themes/silver/pace-theme-flash.css" rel="stylesheet" />
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-
-
-    <style type="text/css">
-        body {
-
-            font: 14px sans-serif;
-            background-image: url("/SODA/uploads/bg.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-position: center;
-
-
-        }
-
-        .wrapper {
-            width: 350px;
-            padding: 20px;
-            background-color: lightslategray;
-        }
-    </style>
 </head>
 <body>
     <div class="container py-5 d-flex justify-content-center ">
@@ -149,6 +124,22 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     </div>
 </body>
 
+
+<style type="text/css">
+        body {
+
+            font: 14px sans-serif;
+            background-image: url("/SODA/uploads/bg.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .wrapper {
+            width: 350px;
+            padding: 20px;
+            background-color: lightslategray;
+        }
+    </style>
 </html>
 
 

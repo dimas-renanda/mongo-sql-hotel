@@ -1,7 +1,13 @@
 <?php 
 require_once 'navbar.php';
+@$hid = $_GET['ridclicked'];
+@$rid = $_GET['hidclicked'];
 
-$akun = $_SESSION['email'] ;
+if (!isset($_SESSION['email']))
+{
+    echo '<a href="login.php"><h2>Login please !</h2></a>';
+}
+$akun = @$_SESSION['email'] ;
 if($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     $htd = $_POST['hotelid'];
@@ -142,11 +148,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
             <br>
             <form method="post">
             <div class="form-group ">
-                    <i class="fas fa-user"> Hotel ID</i><input type="number" name="hotelid" class="form-control" placeholder="Hotel ID">
+                    <i class="fas fa-user"> Hotel ID</i><input type="number" name="hotelid" class="form-control" placeholder="Hotel ID" value="<?PHP echo $hid; ?>">
                 </div>
                 <br>
                 <div class="form-group ">
-                    <i class="fas fa-user"> Room ID</i><input type="number" name="roomid" class="form-control" placeholder="Room ID">
+                    <i class="fas fa-user"> Room ID</i><input type="number" name="roomid" class="form-control" placeholder="Room ID" value="<?PHP echo $rid; ?>">
                 </div>
                 <br>
                 <div class="form-group ">

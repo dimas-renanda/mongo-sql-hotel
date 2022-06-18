@@ -199,7 +199,7 @@ background-image: url("/SODA/uploads/bg.jpg");
 		background-size:cover;
 		background-position:center;
 
-
+  background-color: #ccc;
 
 
 }
@@ -374,7 +374,7 @@ background-image: url("/SODA/uploads/bg.jpg");
             </div>
             <br>
             <div class="form-group">
-            <input type="checkbox" name="agree" id="agree" value="agree" required/> <label for='agree'>Menyetujui syarat <a target="_blank" rel="noopener noreferrer"  href="#">Peraturan</a>.</label>
+            <input type="checkbox" name="agree" id="agree" value="agree" required/> <label for='agree'>Menyetujui  <a target="_blank" rel="noopener noreferrer"  href="#">Persyaratan</a></label>
             </div>
             <br>
             <p>Sudah Memiliki Akun? <a href="login.php">Login disini</a>.</p>

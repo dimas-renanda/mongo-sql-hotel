@@ -11,24 +11,60 @@
   },
   "room_id": 535,
   "date_booked": {
-    "$timestamp": {
-      "t": 1654056887,
-      "i": 1
+    "$date": {
+      "$numberLong": "1348444800000"
     }
   },
   "checkin_date": {
-    "$timestamp": {
-      "t": 1654056887,
-      "i": 2
+    "$date": {
+      "$numberLong": "1348444800000"
     }
   },
-  "checkput_date": {
+  "number_of_night": 1,
+  "booking_status": "accepted",
+  "special_req": "minta deket kolam renang",
+  "checkout_date": {
     "$timestamp": {
       "t": 1654056887,
       "i": 3
     }
   },
-  "number_of_night": 1,
-  "booking_status": "accepted",
-  "special_req": "minta deket kolam renang"
+  "person": {
+    "adult": 1,
+    "child": 2
+  },
+  "hotel_id": "6"
+},{
+  "_id": {
+    "$oid": "62ac897aa6bc8bda6e046895"
+  },
+  "id_booking": 16,
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "doe@gmail.com",
+  "phone": "0214567895",
+  "hotel_id": "6",
+  "room_id": "503",
+  "person": {
+    "adult": "3",
+    "child": "2"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655503200000"
+    }
+  }
 }]

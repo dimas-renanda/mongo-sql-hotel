@@ -4,17 +4,17 @@ require_once 'connect.php';
 $akun = $_SESSION['email'] ;
 if($_SERVER["REQUEST_METHOD"] == "POST") 
 {
-    // echo $htd = $_POST['hotelid'],'<br>';
-    // echo $rmd = $_POST['roomid'],'<br>';
-    // echo $adlt = $_POST['adult'],'<br>';
-    // echo $chld = $_POST['child'],'<br>';
-    // echo $ckn = $_POST['checkin'],'<br>';
-    // echo $ckt = $_POST['checkout'],'<br>';
+    $htd = $_POST['hotelid'];
+    $rmd = $_POST['roomid'];
+    $adlt = $_POST['adult'];
+    $chld = $_POST['child'];
+    $ckn = $_POST['checkin'];
+    $ckt = $_POST['checkout'];
 
-    // echo $fname = $_POST['fname'],'<br>';
-    // echo $lname = $_POST['lname'],'<br>';
-    // echo $uemail = $_POST['useremail'],'<br>';
-    // echo $uphone = $_POST['userphone'],'<br>';
+    $fname = $_POST['fname'];
+    $lname = $_POST['lname'];
+    $uemail = $_POST['useremail'];
+    $uphone = $_POST['userphone'];
 
     $collection = $client->pdmds->booking;
 
@@ -175,7 +175,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <div class="form-group">
                     <input type="submit" class="form-control btn btn-dark" value="Booking"></input>
                     <br> <br>
-                    <a href="login.php " class="form-control btn btn-secondary">View</a> <br> 
+                    <a href="booking.php " class="form-control btn btn-secondary">View</a> <br> 
                 </div>
             </form>
         </div>

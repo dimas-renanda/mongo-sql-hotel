@@ -2,201 +2,134 @@
 require_once 'connect.php'; ?>
 <html>
 <head>
+<style>
+  body {
+  background-color: #ccc;
+}  
 
+.custom-column {  
+  background-color: #eee;;
+  border: 5px solid #eee;;    
+  padding: 10px;
+  box-sizing: border-box;  
+}
+
+.custom-column-header {
+  font-size: 24px;
+  background-color: #007bff;  
+  color: white;
+  padding: 15px;  
+  text-align: center;
+}
+
+.custom-column-content {
+  background-color: #fff;;
+  border: 2px solid white;  
+  padding: 20px;  
+}
+
+.custom-column-footer {
+  background-color: #eee;;   
+  padding-top: 20px;
+  text-align: center;
+}
+</style>
 </head>
 <body>
-  <div class="container">
-    
-    <?= $_SESSION['id']; ?>
-    <?= $_SESSION['email']; ?>
-  <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative">
-  <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-    <div class="col hp">
-      <div class="card h-50 shadow-sm">
-        <a href="#">
-          <img src="https://m.media-amazon.com/images/I/81gK08T6tYL._AC_SL1500_.jpg" class="card-img-top" alt="product.title" />
-        </a>
-
-        <div class="label-top shadow-sm">
-          <a class="text-white" href="#">asus</a>
-        </div>
-        <div class="card-body">
-          <div class="clearfix mb-3">
-            <span class="float-start badge rounded-pill bg-success">1.245$</span>
-
-            <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link">reviews</a></span>
-          </div>
-          <h5 class="card-title">
-            <a target="_blank" href="#">ASUS TUF </a>
-          </h5>
-
-          <div class="d-grid gap-2 my-4">
-
-            <a href="#" class="btn btn-warning bold-btn">add to cart</a>
-
-          </div>
-          <div class="clearfix mb-1">
-
-            <span class="float-start"><a href="#"><i class="fas fa-question-circle"></i></a></span>
-
-            <span class="float-end">
-              <i class="far fa-heart" style="cursor: pointer"></i>
-
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col hp">
-      <div class="card h-50 shadow-sm">
-        <a href="#">
-          <img src="https://m.media-amazon.com/images/I/71wF7YDIQkL._AC_SL1500_.jpg" class="card-img-top" alt="product.title" />
-        </a>
-
-        <div class="label-top shadow-sm">
-          <a class="text-white" href="#">razer</a>
-        </div>
-        <div class="card-body">
-          <div class="clearfix mb-3">
-            <span class="float-start badge rounded-pill bg-success">2.345$</span>
-
-            <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link">reviews</a></span>
-          </div>
-          <h5 class="card-title">
-            <a target="_blank" href="#">Razer Blade 15 </a>
-          </h5>
-
-          <div class="d-grid gap-2 my-4">
-
-            <a href="#" class="btn btn-warning bold-btn">add to cart</a>
-
-          </div>
-          <div class="clearfix mb-1">
-
-            <span class="float-start"><a href="#"><i class="fas fa-question-circle"></i></a></span>
-
-            <span class="float-end">
-              <i class="far fa-heart" style="cursor: pointer"></i>
-
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col hp">
-      <div class="card h-50 shadow-sm">
-        <a href="#">
-          <img src="https://m.media-amazon.com/images/I/81w+3k4U8PL._AC_SL1500_.jpg" class="card-img-top" alt="product.title" />
-        </a>
-
-        <div class="label-top shadow-sm">
-          <a class="text-white" href="#">lenovo</a>
-        </div>
-        <div class="card-body">
-          <div class="clearfix mb-3">
-            <span class="float-start badge rounded-pill bg-success">1.020$</span>
-
-            <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link">reviews</a></span>
-          </div>
-          <h5 class="card-title">
-            <a target="_blank" href="#">Lenovo Legion 5 </a>
-          </h5>
-
-          <div class="d-grid gap-2 my-4">
-
-            <a href="#" class="btn btn-warning bold-btn">add to cart</a>
-
-          </div>
-          <div class="clearfix mb-1">
-
-            <span class="float-start"><a href="#"><i class="fas fa-question-circle"></i></a></span>
-
-            <span class="float-end">
-              <i class="far fa-heart" style="cursor: pointer"></i>
-
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col hp">
-      <div class="card h-50 shadow-sm">
-        <a href="#">
-          <img src="https://m.media-amazon.com/images/I/61Ze2wc9nyS._AC_SL1500_.jpg" class="card-img-top" alt="product.title" />
-        </a>
-        <!-- <div class="label-top shadow-sm">Asus Rog</div>  -->
-        <div class="label-top shadow-sm">
-          <a class="text-white" href="#">msi</a>
-        </div>
-        <div class="card-body">
-          <div class="clearfix mb-3">
-            <span class="float-start badge rounded-pill bg-success">2.245$</span>
-
-            <span class="float-end"><a href="#" class="small text-muted text-uppercase aff-link">reviews</a></span>
-          </div>
-          <h5 class="card-title">
-            <a target="_blank" href="#">MSI GL66 Gaming </a>
-          </h5>
-
-          <div class="d-grid gap-2 my-4">
-
-            <a href="#" class="btn btn-warning bold-btn">add to cart</a>
-
-          </div>
-          <div class="clearfix mb-1">
-
-            <span class="float-start"><a href="#"><i class="fas fa-question-circle"></i></a></span>
-
-            <span class="float-end">
-              
-<i class="far fa-heart" style="cursor: pointer"></i>
-
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="small text-muted my-4">Images by <a target="_blank" href="https://www.amazon.com/">Amazon</a></div>
-  </div>
-</body>
-</html>
-<?php 
-
-
+  <?php 
 $roomcollection = $client->pdmds->room;
-
-$room_data = $roomcollection->find();
+$filter = [];
+$options = ['sort' => ['hotel_id' => 1]];
+$room_data = $roomcollection->find($filter,$options);
 //var_dump($cursor);
 
+function gethotelname($x)
+{
+  $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
+  $match = array('hotel_id' => $x);
+  $hotelcollection = $clientfunction->pdmds->hotel;
+  $hotel_data = $hotelcollection->find($match);
+  foreach($hotel_data as $item)
+  {
+    $hasil = $item['hotel_name'];
+  }
+  return $hasil;
+}
 
-foreach($room_data as $item):
-    echo "<div class='card text-center' style='width: 28rem;'>";
-    //echo '<div class="card-header bg-info text-white">Hotel ID '.$item.[].'</div><br>';
-    echo '<label>ID : </label>';
-    echo '<span>'.$item['_id'].'</span><br>';
-    echo '<span>Hotel ID : '.$item['hotel_id'].'</span><br>';
-    echo '<label>Room : </label><br><br><hr>';
+function newgethotelname()
+{
+  $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
+  $hotelcollection = $clientfunction->pdmds->hotel;
+  $hotel_data = $hotelcollection->find();
+  //$hasil = [][]
+  $hasil = $hotel_data->toarray();
   
-   // echo '<span>'.$item['room'].'</span><br>';
-   // echo '<label>Tags : </label>';
-      echo '<label>Room Type : </label> <span>'.$item['room_type'].' </span><br><br>';
-       echo '<label>Room Number : </label> <span>'.$item['room_number'].' </span><br><br>';
-       echo '<label>Room Status : </label> <span>'.$item['room_status'].' </span><br><br>';
-       echo '<label>Room Rate : </label> <span>'.$item['room_rate'].' </span><br><br><hr>';
 
-       foreach($item['room_notes']as $note):
-       echo '<label>Room Notes : </label> <span>'.$note.' </span><br><br><hr>';
-      endforeach;
 
-    echo "</div>";
-    echo "<br>";
+//   $person = ["name"=>"mohammed", "age"=>30];
+
+// $person['addr'] = "Sudan";
+
+//print_r($person) 
+
+  var_dump($hasil);
+
+  // foreach($hasil as $x => $hasil['hotel_id'])
+  // {
+  //   echo   $x;
+
+  //   echo "<br>";
+  // }
+  foreach($hasil as $y => $hasil['hotel_name'])
+  {
+    echo ' ',$y;
+  }
+}
+
+newgethotelname();
+
+echo '<div class="container">
+  <div class="row">';
+
+  foreach($room_data as $item):
+    echo '<div class="col-sm-12 col-md-4">
+      <div class="custom-column">
+        <div class="custom-column-header">'.$item['hotel_id'].gethotelname($item['hotel_id']).'</div>
+        <div class="custom-column-content">
+          <ul class="list-group">
+            <li class="list-group-item"><i class="fa fa-check"></i>'.$item['room_type'].'</li>
+            <li class="list-group-item"><i class="fa fa-check"></i>'.$item['room_number'].'</li>
+            <li class="list-group-item"><i class="fa fa-check"></i>' .$item['room_status'].'</li>
+            <li class="list-group-item"><i class="fa fa-check"></i>' .$item['room_rate'].'</li>';
+            error_reporting(E_ALL ^ E_WARNING); 
+            
+          //      foreach($item['room_notes'] as $note):
+          //         //echo '<label>Room Notes : </label> <span>'.$note.' </span><br><br><hr>';
+                  
+
+          //   echo '<li class="list-group-item"><i class="fa fa-check"></i> '.$note.'</li>';
+          // endforeach;
+            echo '</ul>
+        </div>
+        <div class="custom-column-footer"><button class="btn btn-primary btn-lg">Click here</button></div>
+      </div>
+    </div>';
   endforeach;
-
-
-
+echo '
+  </div>
+</div>';
 
 
 ?>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

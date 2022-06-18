@@ -1,5 +1,5 @@
 <?php 
-require_once 'connect.php';
+require_once 'navbar.php';
 
 if($_SERVER["REQUEST_METHOD"] == "POST") 
 {

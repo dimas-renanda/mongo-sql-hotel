@@ -2,99 +2,53 @@
 require_once 'connect.php'; ?>
 <html>
 <head>
-<style>
-  body {
-  background-color: #ccc;
-}  
-
-.custom-column {  
-  background-color: #eee;;
-  border: 5px solid #eee;;    
-  padding: 10px;
-  box-sizing: border-box;  
-}
-
-.custom-column-header {
-  font-size: 24px;
-  background-color: #007bff;  
-  color: white;
-  padding: 15px;  
-  text-align: center;
-}
-
-.custom-column-content {
-  background-color: #fff;;
-  border: 2px solid white;  
-  padding: 20px;  
-}
-
-.custom-column-footer {
-  background-color: #eee;;   
-  padding-top: 20px;
-  text-align: center;
-}
-</style>
 </head>
 <body>
   <?php 
+  require_once'navbar.php';
 $roomcollection = $client->pdmds->room;
 $filter = [];
-$options = ['sort' => ['hotel_id' => 1]];
+$options = ['sort' => ['hotel_id' => -1]];
 $room_data = $roomcollection->find($filter,$options);
 //var_dump($cursor);
 
-function gethotelname($x)
-{
-  $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
-  $match = array('hotel_id' => $x);
-  $hotelcollection = $clientfunction->pdmds->hotel;
-  $hotel_data = $hotelcollection->find($match);
-  foreach($hotel_data as $item)
-  {
-    $hasil = $item['hotel_name'];
-  }
-  return $hasil;
-}
+// function gethotelname($x)
+// {
+//   $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
+//   $match = array('hotel_id' => $x);
+//   $hotelcollection = $clientfunction->pdmds->hotel;
+//   $hotel_data = $hotelcollection->find($match);
+//   foreach($hotel_data as $item)
+//   {
+//     $hasil = $item['hotel_name'];
+//   }
+//   return $hasil;
+// }
 
-function newgethotelname()
+function newgethotelname($x)
 {
   $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
   $hotelcollection = $clientfunction->pdmds->hotel;
   $hotel_data = $hotelcollection->find();
-  //$hasil = [][]
-  $hasil = $hotel_data->toarray();
-  
+  foreach($hotel_data as $item)
+    {
+      //echo $item['hotel_id'],$item['hotel_name'];
+      $hname [$item['hotel_id']] = $item['hotel_name'];
+    };
+    //var_dump($hname);
 
-
-//   $person = ["name"=>"mohammed", "age"=>30];
-
-// $person['addr'] = "Sudan";
-
-//print_r($person) 
-
-  var_dump($hasil);
-
-  // foreach($hasil as $x => $hasil['hotel_id'])
-  // {
-  //   echo   $x;
-
-  //   echo "<br>";
-  // }
-  foreach($hasil as $y => $hasil['hotel_name'])
-  {
-    echo ' ',$y;
-  }
+return $hname[$x];
 }
 
-newgethotelname();
+//newgethotelname(6);
 
-echo '<div class="container">
+echo '<div class="container py-5">
   <div class="row">';
 
   foreach($room_data as $item):
     echo '<div class="col-sm-12 col-md-4">
       <div class="custom-column">
-        <div class="custom-column-header">'.$item['hotel_id'].gethotelname($item['hotel_id']).'</div>
+        <div class="custom-column-header">'.newgethotelname($item['hotel_id']).'</div>
         <div class="custom-column-content">
           <ul class="list-group">
             <li class="list-group-item"><i class="fa fa-check"></i>'.$item['room_type'].'</li>
@@ -132,4 +86,38 @@ echo '
 
 
 </body>
+<footer>
+<style>
+  body {
+  background-color: #ccc;
+}  
+
+.custom-column {  
+  background-color: #eee;;
+  border: 5px solid #eee;;    
+  padding: 10px;
+  box-sizing: border-box;  
+}
+
+.custom-column-header {
+  font-size: 24px;
+  background-color: #007bff;  
+  color: white;
+  padding: 15px;  
+  text-align: center;
+}
+
+.custom-column-content {
+  background-color: #fff;;
+  border: 2px solid white;  
+  padding: 20px;  
+}
+
+.custom-column-footer {
+  background-color: #eee;;   
+  padding-top: 20px;
+  text-align: center;
+}
+</style>
+</footer>
 </html>

@@ -34,11 +34,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     else
     {
         $insertOneResult = $collection->insertOne([
-            'hotel_id' => $htlid,
-            'room_number' => $rmnum,
+            'hotel_id' => (int)$htlid,
+            'room_number' => (int)$rmnum,
             'room_type' => $rmtyp,
             'room_status' => $rmstat,
-            'room_rate' => $rmrat,
+            'room_rate' => (int)$rmrat,
             'avb_on' => $rmavon,
          ]);
 

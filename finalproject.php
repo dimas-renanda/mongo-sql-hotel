@@ -225,7 +225,53 @@ $client = new MongoDB\Client(
         
         $itungresort=array('hotel_type'=> 'Resort');
         echo "<h3>Cara baru itung Jumlah hotel Resort : ".$dbhotel->count($itungresort)."</h3>";
+
+        $filter  = [];
+        $options = ['sort' => ['room_id' => 1]]; // 1 desc , -1 asc
+        //$cursor = $collection->find ()->sort(array('timestamp'=>-1))->limit(10);
+
+        // $client = new MongoDB\Client('mongodb://localhost');
+        // $client->mydb->mycollection->find($filter, $options);
+
+        //hotel yang paling laris 
+
+        //hotel yang paling sering dicancel
+
+        $filter = array('hotel_id' => '6');
+
+        $booking_sdata = $dbhotel->count($filter);
+        echo $booking_sdata;
+
+        $booking_data = $dbhotel->find($filter,$options);
+
+        //hotel yang kamarnya mahal 
+        $dbroom=$client->pdmds->room;
+        $mihil=$dbroom->find(array('room_rate'=> array('$gt'=>100000)));
+        foreach($mihil as $zx){
+            
+            echo "<h3>tipe kamar : ".$zx['room_type']."  </h3>";
+            echo "<h3>harganya : ".$zx['room_rate']."  </h3>";
+
+        }
+
+        //jumlah hotel di suatu negara 
+        $jmlhotel=$dbhotel->find();
+        $counthotel=0;
+        foreach($jmlhotel as $x){
+            $counthotel=0;
+                echo "<h3>".$x['country_code']." : </h3>";
+                    $masinghotel=$dbhotel->find(['country_code'=>$x['country_code']]);
+                $itung=array('hotel_type'=> array('$ne'=>null));
+                // echo "<h3>itung Jumlah hotel di suatu negara : ".$x['country_code']->count()."</h3>";
+                foreach($masinghotel as $y){
+                    $counthotel=$counthotel+1;
+                }
+                echo "<h3>".$counthotel." : </h3>";
+                
+
+        }
     ?>
+
     <?php
              $idcat1 = $transaksi->find(
                 ['Invoice_id'    => 1]

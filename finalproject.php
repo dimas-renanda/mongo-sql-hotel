@@ -1,48 +1,22 @@
 <?php
 require_once'connect.php';
 
-function gethotelname($x)
-{
-  $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
-  $match = array('hotel_id' => $x);
-  $hotelcollection = $clientfunction->pdmds->hotel;
-  $hotel_data = $hotelcollection->find($match);
-  foreach($hotel_data as $item)
-  {
-    $hasile = $item['hotel_name'];
-  }
-  return $hasile;
-}
-
-function newgethotelname()
+function newgethotelname($x)
 {
   $clientfunction = new MongoDB\Client('mongodb://localhost:27017/');
   $hotelcollection = $clientfunction->pdmds->hotel;
   $hotel_data = $hotelcollection->find();
-  //$hasil = [][]
-  $hasil = $hotel_data->toarray();
-  
+  foreach($hotel_data as $item)
+    {
+      //echo $item['hotel_id'],$item['hotel_name'];
+      $hname [$item['hotel_id']] = $item['hotel_name'];
+    };
+    //var_dump($hname);
 
-
-//   $person = ["name"=>"mohammed", "age"=>30];
-
-// $person['addr'] = "Sudan";
-
-//print_r($person) 
-
-  var_dump($hasil);
-
-  // foreach($hasil as $x => $hasil['hotel_id'])
-  // {
-  //   echo   $x;
-
-  //   echo "<br>";
-  // }
-  foreach($hasil as $y => $hasil['hotel_name'])
-  {
-    echo ' ',$y;
-  }
+return $hname[$x];
 }
+
+
 
 
 
@@ -287,7 +261,7 @@ function newgethotelname()
         $mihil=$dbroom->find(array('room_rate'=> array('$gt'=>999000)));
         echo"<h3>Hotel yang kamarnya mahal </h3>";
         foreach($mihil as $zx){
-            $name_hotel=gethotelname($zx['hotel_id']);
+            $name_hotel=newgethotelname($zx['hotel_id']);
             echo "<h4>nama hotel : ".$name_hotel."  </h4>";
             echo "<h4>tipe kamar : ".$zx['room_type']."  </h4>";
             echo "<h4>harganya : ".$zx['room_rate']."  </h4>";
@@ -295,10 +269,10 @@ function newgethotelname()
         }
 
         //hotel yang kelasnya standart (500.000-1.000.000)
-        $budgeted=$dbroom->find(array('room_rate'=> array('$gt'=>499000) && array('$lt'=>999000) ));
+        $budgeted=$dbroom->find(array('room_rate'=> array('$gt'=>499000,'$lt'=>999000) ));
         echo"<h3>Hotel yang kamarnya menengah </h3>";
         foreach($budgeted as $xx){
-            $name_hotel=gethotelname($xx['hotel_id']);
+            $name_hotel=newgethotelname($xx['hotel_id']);
             echo "<h4>nama hotel : ".$name_hotel."  </h4>";
             echo "<h4>tipe kamar : ".$xx['room_type']."  </h4>";
             echo "<h4>harganya : ".$xx['room_rate']."  </h4>";
@@ -309,7 +283,7 @@ function newgethotelname()
         $murmer=$dbroom->find(array('room_rate'=> array('$lt'=>499000) ));
         echo"<h3>Hotel yang kamarnya murah </h3>";
         foreach($murmer as $fx){
-            $name_hotel=gethotelname($fx['hotel_id']);
+            $name_hotel=newgethotelname($fx['hotel_id']);
             echo "<h4>nama hotel : ".$name_hotel."  </h4>";
             echo "<h4>tipe kamar : ".$fx['room_type']."  </h4>";
             echo "<h4>harganya : ".$fx['room_rate']."  </h4>";

@@ -3,14 +3,19 @@
 <?php require_once 'navbar.php'; ?>
     </head>
     <body>
-      <div class="container py-5">    
+      <div class="container py-5">   
+      <form class="mx-auto" action="<?php $_PHP_SELF; ?>"method = "POST">
+<label for="Search Country">Search Country</label><br>
+<input type="text" name='cari' id='cari'>
+       <button name ="aksi" type = "submit" class="btn btn-dark" >Find</button>
+       <button name ="Reset" class="btn btn-secondary" onclick="window.location.href=window.location.href; return false;" >Reset</button>
+    </form> 
         <table class="table text-center">
   <thead>
     <tr>
       <th scope="col">Hotel Code</th>
       <th scope="col"></th>
       <th scope="col">Hotel Name</th>
-      <th scope="col">Number of Booked</th>
     </tr>
   </thead>
   <tbody>
@@ -58,7 +63,6 @@ $search = array(
 //             '$hotel_id'   => array('$count'=>1),
 //         )
 //     ),);
-
 $search = array(
     array('$match'  => array("country_code" => 'INA')),
     [
@@ -69,6 +73,22 @@ $search = array(
     ]
 
   );
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    $ygdicari = $_POST['cari'];
+    echo $ygdicari;
+    $search = array(
+        array('$match'  => array("country_code" => $ygdicari)),
+        [
+            '$group' => [
+                "_id" => '$hotel_id',
+                "total"   => ['$sum'=>1],
+            ]
+        ]
+      );
+}
+
 
 $query = [
     [

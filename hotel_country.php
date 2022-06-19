@@ -15,7 +15,7 @@
   </thead>
   <tbody>
   <?php 
-$bookingcollection = $client->pdmds->booking;
+$hotelcollection = $client->pdmds->hotel;
         //create the aggregation
 //create the Match on clothing-category = shoes or brand = nike AND size 37
 // $ops = array(
@@ -59,6 +59,17 @@ $search = array(
 //         )
 //     ),);
 
+$search = array(
+    array('$match'  => array("country_code" => 'INA')),
+    [
+        '$group' => [
+            "_id" => '$hotel_id',
+            "total"   => ['$sum'=>1],
+        ]
+    ]
+
+  );
+
 $query = [
     [
         '$group' => [
@@ -68,7 +79,7 @@ $query = [
     ]
  ];
   
-  $guest_data = $bookingcollection->aggregate($query);
+  $guest_data = $hotelcollection->aggregate($search);
 
   //var_dump($guest_data);
 
@@ -93,7 +104,6 @@ return $hname[$x];
 
     echo '<tr><th scope="row">',$item['_id'],'<th>';
     echo '<td>',newgethotelname($item['_id']),'</td>';
-    echo '<td>',$item['total'],'</td></tr>';
   }
 
          ?>

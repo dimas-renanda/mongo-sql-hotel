@@ -3,7 +3,20 @@
 <?php require_once 'navbar.php'; ?>
     </head>
     <body>
-        <?php 
+      <div class="container py-5">
+
+      <table class="table text-center">
+  <thead>
+    <tr>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+      <th scope="col">Guest Country</th>
+      <th scope="col">Guest Region</th>
+      <th scope="col">Guest Booking Count</th>
+    </tr>
+  </thead>
+  <tbody>
+  <?php 
 $bookingcollection = $client->pdmds->booking;
         //create the aggregation
 //create the Match on clothing-category = shoes or brand = nike AND size 37
@@ -109,10 +122,19 @@ function getguestcountry($x,$cariapa)
 echo getguestcountry('dimasrenanda@gmail.com','rgn');
   foreach($guest_data as $item)
   {
-    echo 'Guest Email : '.$item['_id'].',<br> Asal country : '.getguestcountry($item['_id'],'ctn').',<br> Asal Region: '.getguestcountry($item['_id'],'rgn').',<br> pernah melakukan  '.$item['total'].'x dibooking <br><br>';
-  }
+    echo '<tr><th scope="row">',$item['_id'],'<th>';
+  echo '<td>',getguestcountry($item['_id'],'ctn'),'</td>';
+  echo '<td>',getguestcountry($item['_id'],'rgn'),'</td>';
+  echo '<td>',$item['total'],'</td></tr>';
+  }    
 
          ?>
+
+  </tbody>
+</table>
+
+        
+         </div>
     </body>
     <footer>
 

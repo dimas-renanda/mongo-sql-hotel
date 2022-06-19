@@ -48,10 +48,10 @@
                         <a class="dropdown-item" href="booking_view.php">View Booking</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="room_view.php">View Country</a>
+                        <a class="dropdown-item" href="country_view.php">View Country</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="booking_view.php">View Region</a>
+                        <a class="dropdown-item" href="region_view.php">View Region</a>
                       </li>
               </ul>
           </li>
@@ -61,14 +61,14 @@
               Analytics
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li>
+              <!-- <li>
                         <a class="dropdown-item" href="Guest_loc.php">Count Guest Based Location</a>
+                      </li> -->
+                      <li>
+                        <a class="dropdown-item" href="best_hotel.php">Best Hotel by Booked</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="best_hotel.php">Best Hotel</a>
-                      </li>
-                      <li>
-                        <a class="dropdown-item" href="best_guest.php">Best Customer</a>
+                        <a class="dropdown-item" href="best_guest.php">Count Best Customer and country</a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="room_view.php">Count Booking from country region</a>

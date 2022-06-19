@@ -81,7 +81,7 @@ $search = array(
   
   $guest_data = $bookingcollection->aggregate($querynya);
 
-  var_dump($guest_data);
+  //var_dump($guest_data);
 
   function newgethotelname($x)
 {

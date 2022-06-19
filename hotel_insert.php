@@ -81,7 +81,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 </div>
                 <br>
                 <div class="form-group">
-                    <input type="submit" class="form-control btn btn-dark" value="Booking"></input>
+                    <input type="submit" class="form-control btn btn-dark" value="Insert"></input>
                     
                 </div>
                 <br>

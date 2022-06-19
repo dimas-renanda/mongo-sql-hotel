@@ -63,13 +63,12 @@ $query = [
         '$gt'=>new MongoDB\BSON\UTCDatetime(strtotime('2022-05-01 00:00:00') * 1000),
         '$lt'=>new MongoDB\BSON\UTCDatetime(strtotime('2022-08-01 23:59:59') * 1000),
     ] 
-    ),array('$and'=>array("person.child"))),
+    )),
     [
       '$group' => [
           "_id" => '$email',
           "total"   => ['$sum'=>1],
       ]
-
     ]
   );
 
@@ -91,13 +90,13 @@ $query = [
     );
 
 
-    create the aggregation
-create the Match on clothing-category = shoes or brand = nike AND size 37
+// create the aggregation
+// create the Match on clothing-category = shoes or brand = nike AND size 37
 $ops = array(
 array('$match' => 
 array('$or' => 
-array(array("room_status" => 'Available'),array("brand" => 'nike'))
-,'$and' => array(array("size" => '37')
+array(array("booking_status" => 'Accepted'),array("number_of_night" => '1'))
+,'$and' => array(array("hotel_id" => '7')
 )
 )
 )
@@ -107,7 +106,8 @@ array(array("room_status" => 'Available'),array("brand" => 'nike'))
 
   foreach($guest_data as $item)
   {
-    echo 'User : '.$item['_id'].' melakukan booking hotel pada tanggal '.$item['checkin_date'].' sebanyak '.$item['total'].' kali<br>';
+    echo 'User : '.$item['_id'].' melakukan booking hotel sebanyak '.$item['total'].' kali<br>';
+    // echo$item["checkin_date"];
   }
 
   //var_dump($guest_data);

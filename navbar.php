@@ -74,7 +74,10 @@
                         <a class="dropdown-item" href="room_view.php">Count Booking from country region</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="probsummerchild.php">Count bawa anak saat liburan</a>
+                        <a class="dropdown-item" href="probsummerchild.php">View Booking pada range tgl tertentu</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="transaksiaccbyhotel.php">Transaksi yang acc dari hotel</a>
                       </li>
               </ul>
           </li>

@@ -24,8 +24,11 @@ return $hname[$x];
 
 
 <html>
+    <head>
+        <?php   require_once 'navbar.php'; ?>
+    </head>
     
-    
+<body>    
     <h1>Total tipe hotel</h1>
     <?php
         $dbhotel = $client->pdmds->hotel;
@@ -45,11 +48,30 @@ return $hname[$x];
         }
         echo "<h3>Jumlah hotel Resort : ".$countresort."</h3>";
         echo "<h3>Jumlah hotel City : ".$countcity."</h3>";
-        
+  
         $itungresort=array('hotel_type'=> 'Resort');
         echo "<h3>Cara baru itung Jumlah hotel Resort : ".$dbhotel->count($itungresort)."</h3>";
 
-        
+        echo'
+        <div class = "container py-5 ">
+        <table class="table table-striped table-bordered table-hover text-center">
+        <thead>
+            <tr>
+                <th scope="col">Tipe Hotel</th>
+                <th scope="col">Jumlah</th>
+             </tr>
+        </thead>
+          <tbody>
+          <tr>
+                <td>'.$countresort.'</td>;
+                <td>'.$countcity.'</td>;
+          </tr>
+          </tbody>
+        </table>';
+       
+
+
+
         $filter  = [];
         $options = ['sort' => ['room_id' => 1]]; // 1 desc , -1 asc
         //$cursor = $collection->find ()->sort(array('timestamp'=>-1))->limit(10);
@@ -67,40 +89,111 @@ return $hname[$x];
         echo $booking_sdata;
 
         $booking_data = $dbhotel->find($filter,$options);
+        ?>
+        <table class="table table-striped text-center">
+        <thead>
+            <tr>
+            <th scope="col">Hotel mahal</th>
+            <th scope="col"></th>
+            <th scope="col">Tipe Kamar</th>
+            <th scope="col">Harga</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            
+            //hotel yang kamarnya mahal (diatas 1000000)
+            $dbroom=$client->pdmds->room;
+            $mihil=$dbroom->find(array('room_rate'=> array('$gt'=>999000)));
+            echo"<h3>Hotel yang harga kamarnya mahal </h3>";
+            foreach($mihil as $zx){
+                $name_hotel=newgethotelname($zx['hotel_id']);
+               
+                echo '<tr><th scope="row">',$name_hotel,'<th>';
+                echo '<td>',$zx['room_type'],'</td>';
+                echo '<td>',$zx['room_rate'],'</td>';
+                    
 
-        //hotel yang kamarnya mahal (diatas 1000000)
-        $dbroom=$client->pdmds->room;
-        $mihil=$dbroom->find(array('room_rate'=> array('$gt'=>999000)));
-        echo"<h3>Hotel yang kamarnya mahal </h3>";
-        foreach($mihil as $zx){
-            $name_hotel=newgethotelname($zx['hotel_id']);
-            echo "<h4>nama hotel : ".$name_hotel."  </h4>";
-            echo "<h4>tipe kamar : ".$zx['room_type']."  </h4>";
-            echo "<h4>harganya : ".$zx['room_rate']."  </h4>";
 
-        }
+    
+            }
 
-        //hotel yang kelasnya standart (500.000-1.000.000)
-        $budgeted=$dbroom->find(array('room_rate'=> array('$gt'=>499000,'$lt'=>999000) ));
-        echo"<h3>Hotel yang kamarnya menengah </h3>";
-        foreach($budgeted as $xx){
-            $name_hotel=newgethotelname($xx['hotel_id']);
-            echo "<h4>nama hotel : ".$name_hotel."  </h4>";
-            echo "<h4>tipe kamar : ".$xx['room_type']."  </h4>";
-            echo "<h4>harganya : ".$xx['room_rate']."  </h4>";
+            ?>
+        </tbody>
+        </table>
 
-        }
 
-        //hotel yang kelasnya murah
-        $murmer=$dbroom->find(array('room_rate'=> array('$lt'=>499000) ));
-        echo"<h3>Hotel yang kamarnya murah </h3>";
-        foreach($murmer as $fx){
-            $name_hotel=newgethotelname($fx['hotel_id']);
-            echo "<h4>nama hotel : ".$name_hotel."  </h4>";
-            echo "<h4>tipe kamar : ".$fx['room_type']."  </h4>";
-            echo "<h4>harganya : ".$fx['room_rate']."  </h4>";
 
-        }
+        <table class="table table-striped text-center">
+        <thead>
+            <tr>
+            <th scope="col">Hotel menengah</th>
+            <th scope="col"></th>
+            <th scope="col">Tipe Kamar</th>
+            <th scope="col">Harga</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            
+            
+            //hotel yang kelasnya standart (500.000-1.000.000)
+            $budgeted=$dbroom->find(array('room_rate'=> array('$gt'=>499000,'$lt'=>999000) ));
+            echo"<h3>Hotel yang harga kamarnya menengah </h3>";
+            foreach($budgeted as $xx){
+                $name_hotel=newgethotelname($xx['hotel_id']);
+                echo '<tr><th scope="row">',$name_hotel,'<th>';
+                echo '<td>',$xx['room_type'],'</td>';
+                echo '<td>',$xx['room_rate'],'</td>';
+            
+            }
+                    
+
+
+
+
+            ?>
+        </tbody>
+        </table>
+
+        
+
+        <table class="table table-striped text-center">
+        <thead>
+            <tr>
+            <th scope="col">Hotel murah</th>
+            <th scope="col"></th>
+            <th scope="col">Tipe Kamar</th>
+            <th scope="col">Harga</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php 
+            
+            
+            //hotel yang kelasnya murah
+            $murmer=$dbroom->find(array('room_rate'=> array('$lt'=>499000) ));
+            echo"<h3>Hotel yang kamarnya murah </h3>";
+            foreach($murmer as $fx){
+                $name_hotel=newgethotelname($fx['hotel_id']);
+                echo '<tr><th scope="row">',$name_hotel,'<th>';
+                echo '<td>',$fx['room_type'],'</td>';
+                echo '<td>',$fx['room_rate'],'</td>';
+            
+            }
+        
+            
+            ?>
+        </tbody>
+        </table>
+
+        
+
+        <?php
+
+
+
+
 
 
         //jumlah hotel di suatu negara 
@@ -216,5 +309,42 @@ return $hname[$x];
                 echo '<br>';
             }
     ?> -->
+
+</div>
+</body>  
+<footer>
+<style>
+  body {
+  background-color: #ccc;
+}  
+
+.custom-column {  
+  background-color: #eee;;
+  border: 5px solid #eee;;    
+  padding: 10px;
+  box-sizing: border-box;  
+}
+
+.custom-column-header {
+  font-size: 24px;
+  background-color: #007bff;  
+  color: white;
+  padding: 15px;  
+  text-align: center;
+}
+
+.custom-column-content {
+  background-color: #fff;;
+  border: 2px solid white;  
+  padding: 20px;  
+}
+
+.custom-column-footer {
+  background-color: #eee;;   
+  padding-top: 20px;
+  text-align: center;
+}
+</style>
+</footer>
 </html>
 

@@ -117,7 +117,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     <input type="submit" class="form-control btn btn-dark" value=" Insert Room"></input>
                 </div>
                 <br>
-                <a href="room.php " class="form-control btn btn-secondary">View</a> <br> 
+                <a href="room_view.php " class="form-control btn btn-secondary">View</a> <br> 
                 
             </form>
         </div>

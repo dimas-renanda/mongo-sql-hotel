@@ -44,6 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $orig_date = new DateTime($datenya);
     //$out_orig_date = new DateTime($outdatenya);
     //$out_orig_date->modify('+1 day');
+    $orig_date->modify('+1 day');
     
     $chekin_date = new DateTime($ckn);
     $chekout_date = new DateTime($ckt);
@@ -181,7 +182,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                 <div class="form-group">
                     <input type="submit" class="form-control btn btn-dark" value="Booking"></input>
                     <br> <br>
-                    <a href="booking.php " class="form-control btn btn-secondary">View</a> <br> 
+                    <a href="booking_view.php " class="form-control btn btn-secondary">View</a> <br> 
                 </div>
             </form>
         </div>

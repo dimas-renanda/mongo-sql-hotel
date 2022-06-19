@@ -85,7 +85,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
                     
                 </div>
                 <br>
-                <a href="hotel.php " class="form-control btn btn-secondary">View</a> <br> 
+                <a href="hotel_view.php " class="form-control btn btn-secondary">View</a> <br> 
             </form>
         </div>
     </div>

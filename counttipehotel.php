@@ -49,6 +49,7 @@ return $hname[$x];
         $itungresort=array('hotel_type'=> 'Resort');
         echo "<h3>Cara baru itung Jumlah hotel Resort : ".$dbhotel->count($itungresort)."</h3>";
 
+        
         $filter  = [];
         $options = ['sort' => ['room_id' => 1]]; // 1 desc , -1 asc
         //$cursor = $collection->find ()->sort(array('timestamp'=>-1))->limit(10);

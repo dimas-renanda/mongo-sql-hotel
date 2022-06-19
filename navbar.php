@@ -61,11 +61,14 @@
               Analytics
               </a>
               <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li>
-                        <a class="dropdown-item" href="hotel_view.php">Best Hotel</a>
+              <li>
+                        <a class="dropdown-item" href="Guest_loc.php">Count Guest Based Location</a>
                       </li>
                       <li>
-                        <a class="dropdown-item" href="room_view.php">Best Customer</a>
+                        <a class="dropdown-item" href="best_hotel.php">Best Hotel</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="best_guest.php">Best Customer</a>
                       </li>
                       <li>
                         <a class="dropdown-item" href="room_view.php">Count Booking from country region</a>

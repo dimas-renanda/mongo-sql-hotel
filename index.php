@@ -92,14 +92,14 @@ if (!empty($_SESSION['email']))
             <li class="list-group-item"><i class="fa fa-check"></i>'.$item['room_number'].'</li>
             <li class="list-group-item"><i class="fa fa-check"></i>' .$item['room_status'].'</li>
             <li class="list-group-item"><i class="fa fa-check"></i>' .$item['room_rate'].'</li>';
-            error_reporting(E_ALL ^ E_WARNING); 
+            //error_reporting(E_ALL ^ E_WARNING); 
               // foreach($item['room_notes'] as $note):
               //echo '<label>Room Notes : </label> <span>'.$note.' </span><br><br><hr>';
             //echo '<li class="list-group-item"><i class="fa fa-check"></i> '.$note.'</li>';
            //endforeach;
            $hidnya = $item['hotel_id'];
            $ridnya = $item['room_number'];
-           $txturl = 'booking_insert.php?ridclicked='.$ridnya.'&hidclicked='.$hidnya;
+           $txturl = 'booking_insert.php?hidclicked='.$ridnya.'&ridclicked='.$hidnya;
             echo '</ul>
         </div>
         <div class="custom-column-footer"><a href="'.$txturl.'"><button class="btn btn-primary btn-lg">Insert to book</button></a></div>

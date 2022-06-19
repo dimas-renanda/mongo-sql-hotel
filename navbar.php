@@ -73,6 +73,9 @@
                       <li>
                         <a class="dropdown-item" href="hotel_country.php">Hotel in country region</a>
                       </li>
+                      <li>
+                        <a class="dropdown-item" href="datediff.php">Lead Time Cancelled Booking</a>
+                      </li>
               </ul>
           </li>
 

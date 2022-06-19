@@ -49,7 +49,7 @@ echo 'All Booking';
             <li class="list-group-item"><i class="fa fa-check"></i>'.$item['special_req'].'</li>';
 
             echo '</ul></div>
-        <div class="custom-column-footer"><button class="btn btn-primary btn-lg">Click here</button></div>
+        <div class="custom-column-footer"><button class="btn btn-warning btn-lg">Set Cancelled</button></div>
       </div>
     </div>';
   endforeach;

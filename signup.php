@@ -337,7 +337,7 @@ background-image: url("/SODA/uploads/bg.jpg");
             <div class="form-group <?php echo (!empty($status_err)) ? 'has-error' : ''; ?>">
                 <label>Gender</label>
                 <select id="selectType" name="status" class = "custom-select">
-                <option value="">--Pilihan--</option> 
+                <option value="">--Options--</option> 
                 <option value="Male" >Male</option> 
 		        <option value="Female" >Female</option> 
 
@@ -349,7 +349,7 @@ background-image: url("/SODA/uploads/bg.jpg");
             <br>
 
             <div class="form-group <?php echo (!empty($phone_err)) ? 'has-error' : ''; ?>">
-                <label>No Handphone</label>
+                <label>Phone</label>
                 <input type="text" name="confirm_phone" class="form-control" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" value="<?php echo $phone; ?>"required>
                 <span class="help-block"><?php echo $phone_err; ?></span>
             </div>

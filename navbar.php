@@ -71,6 +71,9 @@
                         <a class="dropdown-item" href="best_guest.php">Count Best Customer and country</a>
                       </li>
                       <li>
+                        <a class="dropdown-item" href="hotel_type.php">Hotel type</a>
+                      </li>
+                      <li>
                         <a class="dropdown-item" href="hotel_country.php">Hotel in country region</a>
                       </li>
                       <li>

@@ -16,6 +16,7 @@ session_start();
 <!-- JQUERY -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.2/jquery-confirm.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <!-- BOOTSTRAP -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

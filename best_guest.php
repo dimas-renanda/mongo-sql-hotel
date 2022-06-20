@@ -4,7 +4,7 @@
     </head>
     <body>
       <div class="container py-5">
-
+      <h2>Best guest by booking</h2>  
       <table class="table text-center">
   <thead>
     <tr>
@@ -63,11 +63,19 @@ $search = array(
 
 $query = [
     [
+
         '$group' => [
             "_id" => '$email',
             "total"   => ['$sum'=>1],
         ]
     ]
+    ,
+        // [ '$match'=> [ "total"=> [ '$gt'=> -1 ] ] ]
+        array(
+          '$sort' => array(
+             'total' => -1
+          )
+        )
  ];
   
   $guest_data = $bookingcollection->aggregate($query);
@@ -119,20 +127,55 @@ function getguestcountry($x,$cariapa)
   }
 }
 
-echo getguestcountry('dimasrenanda@gmail.com','rgn');
+//echo getguestcountry('dimasrenanda@gmail.com','rgn');
+$tojsemail = [];
+$tojstotal = [];
+$cj=0; 
   foreach($guest_data as $item)
   {
     echo '<tr><th scope="row">',$item['_id'],'<th>';
   echo '<td>',getguestcountry($item['_id'],'ctn'),'</td>';
   echo '<td>',getguestcountry($item['_id'],'rgn'),'</td>';
   echo '<td>',$item['total'],'</td></tr>';
+  $tojsemail[] =strtok($item['_id'],'@');
+  $tojstotal[] =$item['total'];
   }    
-
          ?>
 
   </tbody>
 </table>
+<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
+<script>
+// var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
+// var yValues = [55, 49, 44, 24, 15];
+// <?php
+// json_encode($tojsemail);
+//   var_dump($tojsemail);
+// ?>
+
+var xValues = <?php echo json_encode($tojsemail);?>;
+var yValues = <?php echo json_encode($tojstotal);?>;
+//var barColors = ["red", "green","blue","orange","brown"];
+
+new Chart("myChart", {
+  type: "bar",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: 'green',
+      data: yValues
+    }]
+  },
+  options: {
+    legend: {display: false},
+    title: {
+      display: true,
+      text: "Best guest by user booking "
+    }
+  }
+});
+</script>
         
          </div>
     </body>

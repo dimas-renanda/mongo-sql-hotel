@@ -3,39 +3,26 @@
 <?php require_once 'navbar.php'; ?>
     </head>
     <body>
-      <div class="container py-5">    
-      <h2>Best hotel by user choice</h2>  
+      <div class="container py-5">  
+        <h2>Number of hotel type</h2>  
+      <form class="mx-auto" action="<?php $_PHP_SELF; ?>"method = "POST">
+<label for="Search Country">Search Hotel Type</label><br>
+<input type="text" name='cari' id='cari'>
+       <button name ="aksi" type = "submit" class="btn btn-dark" >Find</button>
+       <button name ="Reset" class="btn btn-secondary" onclick="window.location.href=window.location.href; return false;" >Reset</button>
+    </form> 
         <table class="table text-center">
   <thead>
     <tr>
-      <th scope="col">Hotel Code</th>
+      <th scope="col">Hotel Type</th>
       <th scope="col"></th>
-      <th scope="col">Hotel Name</th>
-      <th scope="col">Number of Booked</th>
+      <th scope="col">Number of Hotel</th>
     </tr>
   </thead>
   <tbody>
   <?php 
-$bookingcollection = $client->pdmds->booking;
-        //create the aggregation
-//create the Match on clothing-category = shoes or brand = nike AND size 37
-// $ops = array(
-//   array(
-//       '$match'  => array('$or' => array(array("room_status" => 'Available'),
-//           array("brand" => 'nike')),
-//           '$and' => array(array("size" => '37'))
-//       ))
-// );
+$bookingcollection = $client->pdmds->hotel;
 
-// $cond = array(
-//     array('$match' => array('page_id' =>123456)),
-//     array(
-//         '$group' => array(
-//             '_id' => '$page_id',
-//            'total' => array('$sum' => '$pageview'),
-//         ),
-//     )
-// );
 
 $cond = array(
     array('$match' => array('hotel_id' =>6)),
@@ -62,16 +49,34 @@ $search = array(
 
 $query = [
     [
-        '$group' => [
-            "_id" => '$hotel_id',
+        '$group' => 
+        [
+            "_id" => '$hotel_type',
             "total"   => ['$sum'=>1],
         ]
-        ],        array(
+        ],array(
           '$sort' => array(
              'total' => -1
           )
         )
  ];
+
+ if ($_SERVER['REQUEST_METHOD'] == 'POST') 
+{
+    $ygdicari = $_POST['cari'];
+    echo $ygdicari;
+
+      $query = [
+        array('$match'  => array("hotel_type" => $ygdicari)),
+        [
+            '$group' => 
+            [
+                "_id" => '$hotel_type',
+                "total"   => ['$sum'=>1],
+            ]
+        ]
+     ];
+}
   
   $guest_data = $bookingcollection->aggregate($query);
 
@@ -93,56 +98,51 @@ return $hname[$x];
 }
 $tojsname = [];
 $tojstotal = [];
-
   foreach($guest_data as $item)
   {
     //echo 'Hotel id : '.$item['_id'].', '.newgethotelname($item['_id']).', ada  '.$item['total'].'x dibooking <br>';
 
     echo '<tr><th scope="row">',$item['_id'],'<th>';
-    $nmnya = newgethotelname($item['_id']);
-    echo '<td>',$nmnya,'</td>';
     echo '<td>',$item['total'],'</td></tr>';
-    $tojsname[] = $nmnya;
+    $tojsname[] = $item['_id'];
     $tojstotal[] = $item['total'];
+
   }
 
          ?>
   </tbody>
 </table>
-
-<canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+<canvas id="myChart" style="width:100%;max-width:350px"></canvas>
 
 <script>
-// var xValues = ["Italy", "France", "Spain", "USA", "Argentina"];
-// var yValues = [55, 49, 44, 24, 15];
-// <?php
-// json_encode($tojsemail);
-//   var_dump($tojsemail);
-// ?>
-
 var xValues = <?php echo json_encode($tojsname);?>;
 var yValues = <?php echo json_encode($tojstotal);?>;
-//var barColors = ["red", "green","blue","orange","brown"];
+var barColors = [
+  "#b91d47",
+  "#00aba9",
+  "#2b5797",
+  "#e8c3b9",
+  "#1e7145"
+];
+
 
 new Chart("myChart", {
-  type: "bar",
+  type: "pie",
   data: {
     labels: xValues,
     datasets: [{
-      backgroundColor: 'blue',
+      backgroundColor: barColors ,
       data: yValues
     }]
   },
   options: {
-    legend: {display: false},
     title: {
       display: true,
-      text: "Best hotel by user choice"
+      text: "All hotel type "
     }
   }
 });
 </script>
-
 </div>
     </body>
     <footer>

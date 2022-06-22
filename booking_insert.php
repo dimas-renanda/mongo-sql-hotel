@@ -44,10 +44,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     $orig_date = new DateTime($datenya);
     //$out_orig_date = new DateTime($outdatenya);
     //$out_orig_date->modify('+1 day');
-    $orig_date->modify('+1 day');
+    $orig_date->modify('+1 day');//karena perbedaaan waktu dari server jadi di plus 1 day
     
     $chekin_date = new DateTime($ckn);
+    $chekin_date->modify('+1 day');
+    
     $chekout_date = new DateTime($ckt);
+    $chekout_date->modify('+1 day');
     //$orig_date=$orig_date->getTimestamp();
     
     $insertOneResult = $collection->insertOne([

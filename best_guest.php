@@ -163,6 +163,7 @@ new Chart("myChart", {
   data: {
     labels: xValues,
     datasets: [{
+      label: 'Guest',
       backgroundColor: 'green',
       data: yValues
     }]
@@ -171,9 +172,14 @@ new Chart("myChart", {
     legend: {display: false},
     title: {
       display: true,
-      text: "Best guest by user booking "
+      text: "Best guest by user booking ",
+      scaleBeginAtZero: true
+
     }
+    
+    
   }
+
 });
 </script>
         

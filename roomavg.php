@@ -3,39 +3,21 @@
 <?php require_once 'navbar.php'; ?>
     </head>
     <body>
-      <div class="container py-5">    
-      <h2>Best hotel by user choice</h2>  
+      <div class="container py-5">  
+      <h2>Hotel average price rate </h2>    
         <table class="table text-center">
   <thead>
     <tr>
       <th scope="col">Hotel Code</th>
       <th scope="col"></th>
       <th scope="col">Hotel Name</th>
-      <th scope="col">Number of Booked</th>
+      <th scope="col">AVG Room Rate</th>
     </tr>
   </thead>
   <tbody>
   <?php 
-$bookingcollection = $client->pdmds->booking;
-        //create the aggregation
-//create the Match on clothing-category = shoes or brand = nike AND size 37
-// $ops = array(
-//   array(
-//       '$match'  => array('$or' => array(array("room_status" => 'Available'),
-//           array("brand" => 'nike')),
-//           '$and' => array(array("size" => '37'))
-//       ))
-// );
+$bookingcollection = $client->pdmds->room;
 
-// $cond = array(
-//     array('$match' => array('page_id' =>123456)),
-//     array(
-//         '$group' => array(
-//             '_id' => '$page_id',
-//            'total' => array('$sum' => '$pageview'),
-//         ),
-//     )
-// );
 
 $cond = array(
     array('$match' => array('hotel_id' =>6)),
@@ -60,20 +42,87 @@ $search = array(
 //         )
 //     ),);
 
-$query = [
+// $query = [
+//     [
+//         '$group' => [
+//             "_id" => '$hotel_id',
+//             "total"   => ['$sum'=>1],
+//         ]
+//     ]
+//  ];
+
+
+
+
+ $cobaquerynya = ([
     [
-        '$group' => [
-            "_id" => '$hotel_id',
-            "total"   => ['$sum'=>1],
-        ]
-        ],        array(
+      '$project'=> [            
+        'date_diff'=> [ '$subtract'=> ['$checkout_date','$checkin_date'] ]
+    ]
+    ],
+    [
+      '$project'=> [             
+        'DifferenceInDays'=> [ '$divide'=> ['$date_diff', 1000 * 60 * 60 * 24] ]
+    ]
+    ]
+      ]);
+
+
+
+
+      $querynya = ([
+
+
+        //     [
+    //       '$project'=> [            
+    //         'date_diff'=> [ '$subtract'=> ['$checkin_date', '$checkout_date'] ]
+    //     ]
+    //     ]
+        ['$project'=> 
+        ['hotel_id'=>1,
+        'room_number'=>1,
+        'room_rate'=>1,
+        'DifferenceInDays'=> ['$divide'=> [['$subtract'=> ['$checkout_date', '$checkin_date']], 1000 * 60 * 60 * 24]]
+        
+        ]]
+        ,
+        array(
           '$sort' => array(
-             'total' => -1
+             'DifferenceInDays' => -1
           )
         )
- ];
+     ]);
+
   
-  $guest_data = $bookingcollection->aggregate($query);
+
+$newquerynya = (
+    [
+        [ '$group' => [
+                '_id' => '$hotelid',
+                'avg' => [ '$sum' => 1 ]
+        ] ],
+    
+        ['$sort' => ["_id" => 1]]
+    ]);
+
+    $newnewquerynya =   ( [
+      [
+        '$group'=>
+          [
+            '_id'=> '$hotel_id',
+            'avgAmount'=> [ '$avg'=> [ '$multiply'=> [ '$room_rate', '$room_rate' ] ] ],
+            'avgtotal'=> [ '$avg'=> '$room_rate' ]
+      ]
+      ]    ,
+        [
+        '$sort' => [
+                     'avgtotal' => -1
+                    ]
+        ]
+
+    ]);
+  
+  $guest_data = $bookingcollection->aggregate($newnewquerynya);
 
   //var_dump($guest_data);
 
@@ -93,23 +142,25 @@ return $hname[$x];
 }
 $tojsname = [];
 $tojstotal = [];
-
   foreach($guest_data as $item)
   {
-    //echo 'Hotel id : '.$item['_id'].', '.newgethotelname($item['_id']).', ada  '.$item['total'].'x dibooking <br>';
+
 
     echo '<tr><th scope="row">',$item['_id'],'<th>';
-    $nmnya = newgethotelname($item['_id']);
-    echo '<td>',$nmnya,'</td>';
-    echo '<td>',$item['total'],'</td></tr>';
-    $tojsname[] = $nmnya;
-    $tojstotal[] = $item['total'];
+    $htlnm = Newgethotelname($item['_id']);
+    echo '<td>',$htlnm,'</td>';
+
+    echo '<td>',$item['avgtotal'],'</td>';
+
+    echo '</tr>';
+    $tojsname[] =$htlnm;
+    $tojstotal[] = $item['avgtotal'];
+
   }
 
          ?>
   </tbody>
 </table>
-
 <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
 
 <script>
@@ -138,12 +189,11 @@ new Chart("myChart", {
     legend: {display: false},
     title: {
       display: true,
-      text: "Best hotel by user choice"
+      text: "Hotel price rate"
     }
   }
 });
 </script>
-
 </div>
     </body>
     <footer>

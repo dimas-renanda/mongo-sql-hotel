@@ -13,7 +13,7 @@
       <th scope="col">Hotel Name</th>
       <th scope="col">Guest Name</th>
       <th scope="col">Guest Email</th>
-      <th scope="col">Checkin Date</th>
+      <th scope="col">Booking Date</th>
       <th scope="col">Checkout Date</th>
       <th scope="col">Lead Time(Days)</th>
       <th scope="col">Booking Status</th>
@@ -68,7 +68,7 @@ $search = array(
 //         'date_diff'=> [ '$subtract'=> ['$checkin_date', '$checkout_date'] ]
 //     ]
 //     ]
-    ['$project'=> ['hotel_id'=>1,'booking_status'=>1,'email'=>1,'first_name'=>1,'last_name'=>1,'email'=>1,'checkin_date'=>1,'checkout_date'=>1,'DifferenceInDays'=> ['$divide'=> [['$subtract'=> ['$checkout_date', '$checkin_date']], 1000 * 60 * 60 * 24]]]]
+    ['$project'=> ['hotel_id'=>1,'booking_status'=>1,'email'=>1,'first_name'=>1,'last_name'=>1,'email'=>1,'checkin_date'=>1,'date_booked'=>1,'DifferenceInDays'=> ['$divide'=> [['$subtract'=> ['$checkin_date', '$date_booked']], 1000 * 60 * 60 * 24]]]]
     ,
     array(
       '$sort' => array(
@@ -123,12 +123,12 @@ $tojstotal = [];
   //  {
         //$monthnya = $item['DifferenceInDays']/30.417;
  //   }
- foreach($item['checkin_date'] as $attr)
+ foreach($item['date_booked'] as $attr)
  {$ckdatenya = $attr;}
  $utcdatetime = new MongoDB\BSON\UTCDateTime($ckdatenya);
  $ckdatetime = $utcdatetime->toDateTime();
 
- foreach($item['checkout_date'] as $attr)
+ foreach($item['checkin_date'] as $attr)
  {$cktdatenya = $attr;}
  $utcdatetime = new MongoDB\BSON\UTCDateTime($cktdatenya);
  $cktdatetime = $utcdatetime->toDateTime();
@@ -138,7 +138,7 @@ $tojstotal = [];
     echo '<td>',ceil($item['DifferenceInDays']),'</td>';
     echo '<td>',$item['booking_status'],'</td></tr>';
     $tojsname[] = ceil($item['DifferenceInDays']);
-    $tojstotal[] = $item['booking_status'];
+    $tojstotal[] = $item['first_name'];
 
   }
 

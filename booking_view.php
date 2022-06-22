@@ -49,7 +49,22 @@ echo 'All Booking';
             <li class="list-group-item"><i class="fa fa-check"></i>'.$item['special_req'].'</li>';
 
             echo '</ul></div>
-        <div class="custom-column-footer"><button class="btn btn-warning btn-lg">Set Cancelled</button></div>
+        <div class="custom-column-footer">';
+
+        if ($item['booking_status']=='Accepted')
+        {
+            echo'<a href=booking_update.php?idbclickcancel='.$item['_id']."".'>
+            <button class="btn btn-success btn-lg">Set Cancelled</button></a>';
+        }
+        else{
+          echo'<a href=booking_update.php?idbclickacc='.$item['_id']."".'>
+          <button class="btn btn-warning btn-lg">Set Accepted</button></a>';
+        }
+
+
+
+echo'
+        </div>
       </div>
     </div>';
   endforeach;

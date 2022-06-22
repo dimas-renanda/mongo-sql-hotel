@@ -186,9 +186,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 <head>
     <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-    <script src="pace/pace.js"></script>
-<link href="pace/themes/silver/pace-theme-flash.css" rel="stylesheet" />
 
     <style type="text/css">
         body{

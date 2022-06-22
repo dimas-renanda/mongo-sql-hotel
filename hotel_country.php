@@ -11,7 +11,7 @@
        <button name ="aksi" type = "submit" class="btn btn-dark" >Find</button>
        <button name ="Reset" class="btn btn-secondary" onclick="window.location.href=window.location.href; return false;" >Reset</button>
     </form> 
-    <i>Default (INA - Asia)</i><br>
+    <i>Example search : 'INA'</i><br>
     <?php  echo 'Hotel Country Code : '.@$hcts.' ' ?>
         <table class="table text-center">
   <thead>
@@ -68,7 +68,6 @@ function getregion($x,$y)
 }
 
 $search = array(
-    array('$match'  => array("country_code" => 'INA')),
     [
         '$group' => [
             "_id" => '$hotel_id',
@@ -87,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST')
     $ygdicari = $_POST['cari'];
     echo $ygdicari;
     echo '<br>','Region : ',getregion($ygdicari,'rname');
-    echo '<br>','Region : ',getregion($ygdicari,'cname');
+    echo '<br>','Country : ',getregion($ygdicari,'cname');
 
     $search = array(
         array('$match'  => array("country_code" => $ygdicari)),
@@ -119,7 +118,7 @@ $getnum = 0;
 
     
   }
-  echo '<br> Number of hotel : ',$getnum;
+  echo '<br> Total number of hotel : ',$getnum;
 
          ?>
   </tbody>

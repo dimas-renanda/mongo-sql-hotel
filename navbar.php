@@ -77,6 +77,12 @@
                         <a class="dropdown-item" href="hotel_country.php">Hotel in country region</a>
                       </li>
                       <li>
+                        <a class="dropdown-item" href="roomavg.php">Hotel price rate</a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="leadbook.php">Lead Time</a>
+                      </li>
+                      <li>
                         <a class="dropdown-item" href="datediff.php">Lead Time Cancelled Booking</a>
                       </li>
               </ul>

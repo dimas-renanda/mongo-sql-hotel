@@ -3,32 +3,628 @@
     "$oid": "6296e662c9acad1f9f0b3df8"
   },
   "id_booking": "B_06012022",
-  "first_name": "Kelvin",
-  "last_name": "Marcellinus",
-  "email": "kelvinhalo@gmail.com",
+  "first_name": "drs",
+  "last_name": "renanda",
+  "email": "renanda@gmail.com",
   "phone": {
     "$numberLong": "87754112020"
   },
   "room_id": 535,
   "date_booked": {
-    "$timestamp": {
-      "t": 1654056887,
-      "i": 1
+    "$date": {
+      "$numberLong": "1348444800000"
     }
   },
   "checkin_date": {
-    "$timestamp": {
-      "t": 1654056887,
-      "i": 2
-    }
-  },
-  "checkput_date": {
-    "$timestamp": {
-      "t": 1654056887,
-      "i": 3
+    "$date": {
+      "$numberLong": "1348444800000"
     }
   },
   "number_of_night": 1,
-  "booking_status": "accepted",
-  "special_req": "minta deket kolam renang"
+  "booking_status": "Cancelled",
+  "special_req": "minta deket kolam renang",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1351036800000"
+    }
+  },
+  "person": {
+    "adult": 1,
+    "child": 2
+  },
+  "hotel_id": "6"
+},{
+  "_id": {
+    "$oid": "62ac897aa6bc8bda6e046895"
+  },
+  "id_booking": 16,
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "doe@gmail.com",
+  "phone": "0214567895",
+  "hotel_id": "6",
+  "room_id": "503",
+  "person": {
+    "adult": "3",
+    "child": "2"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Cancelled",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655503200000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62aca1d857073501b602c8b8"
+  },
+  "id_booking": 3,
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "doe@gmail.com",
+  "phone": "0214567895",
+  "hotel_id": "3",
+  "room_id": "503",
+  "person": {
+    "adult": "3",
+    "child": "2"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655503200000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62aca1db57073501b602c8b9"
+  },
+  "id_booking": 4,
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "doe@gmail.com",
+  "phone": "0214567895",
+  "hotel_id": "3",
+  "room_id": "503",
+  "person": {
+    "adult": "3",
+    "child": "2"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655503200000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62aca1e257073501b602c8ba"
+  },
+  "id_booking": 5,
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "doe@gmail.com",
+  "phone": "0214567895",
+  "hotel_id": "2",
+  "room_id": "503",
+  "person": {
+    "adult": "3",
+    "child": "2"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655503200000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62ad4e5ead72f41d3000e3d6"
+  },
+  "id_booking": 6,
+  "first_name": "John",
+  "last_name": "Doe",
+  "email": "doe@gmail.com",
+  "phone": "0214567895",
+  "hotel_id": "2",
+  "room_id": "503",
+  "person": {
+    "adult": "3",
+    "child": "2"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655330400000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655416800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655589600000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62ad5050ad72f41d3000e3d7"
+  },
+  "id_booking": 7,
+  "first_name": "dimas",
+  "last_name": "renanda",
+  "email": "dimasrenanda@gmail.com",
+  "phone": "081812345645",
+  "hotel_id": "6",
+  "room_id": "601",
+  "person": {
+    "adult": "3",
+    "child": "1"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655503200000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655503200000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655762400000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62aeab096fc2f6a63c01e719"
+  },
+  "id_booking": 8,
+  "first_name": "dimas",
+  "last_name": "renanda",
+  "email": "dimasrenanda@gmail.com",
+  "phone": "081812345645",
+  "hotel_id": "4",
+  "room_id": "88",
+  "person": {
+    "adult": "4",
+    "child": "5"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655589600000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655589600000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655676000000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62aeb5496fc2f6a63c01e722"
+  },
+  "id_booking": 9,
+  "first_name": "hari",
+  "last_name": "kucluk",
+  "email": "harikucluk@gmail.com",
+  "phone": "089967112020",
+  "hotel_id": "12",
+  "room_id": "156",
+  "person": {
+    "adult": "2",
+    "child": "0"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655589600000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1655589600000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Cancelled",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1655762400000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62af34ce46e74ae7ab00a3c8"
+  },
+  "id_booking": 10,
+  "first_name": "Steve",
+  "last_name": "Roger",
+  "email": "steveroger@gmail.com",
+  "phone": "081812345645",
+  "hotel_id": "1",
+  "room_id": "102",
+  "person": {
+    "adult": "2",
+    "child": "1"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655589600000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1671490800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Cancelled",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1672092000000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62af364646e74ae7ab00a3c9"
+  },
+  "id_booking": 11,
+  "first_name": "Bruce",
+  "last_name": "Banner",
+  "email": "brucebanner@gmail.com",
+  "phone": "081812345645",
+  "hotel_id": "2",
+  "room_id": "301",
+  "person": {
+    "adult": "1",
+    "child": "1"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655676000000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1668898800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Cancelled",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1669071600000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62af36a646e74ae7ab00a3ca"
+  },
+  "id_booking": 12,
+  "first_name": "Bruce",
+  "last_name": "Banner",
+  "email": "brucebanner@gmail.com",
+  "phone": "081812345645",
+  "hotel_id": "4",
+  "room_id": "88",
+  "person": {
+    "adult": "1",
+    "child": "0"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655676000000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1656453600000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1656540000000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62af598146e74ae7ab00a3d1"
+  },
+  "id_booking": 13,
+  "first_name": "Bruce",
+  "last_name": "Banner",
+  "email": "brucebanner@gmail.com",
+  "phone": "081812345645",
+  "hotel_id": "6",
+  "room_id": "201",
+  "person": {
+    "adult": "1",
+    "child": "1"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655676000000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1658354400000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1658440800000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62b18e3fbcca0bbcb00e6e75"
+  },
+  "id_booking": 14,
+  "first_name": "hari",
+  "last_name": "kucluk",
+  "email": "harikucluk@gmail.com",
+  "phone": "089967112020",
+  "hotel_id": "1",
+  "room_id": "570",
+  "person": {
+    "adult": "3",
+    "child": ""
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655848800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1660687200000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1661896800000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62b18f98bcca0bbcb00e6e77"
+  },
+  "id_booking": 16,
+  "first_name": "drs",
+  "last_name": "renanda",
+  "email": "renanda@gmail.com",
+  "phone": "",
+  "hotel_id": "12",
+  "room_id": "289",
+  "person": {
+    "adult": "2",
+    "child": "1"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655848800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1658700000000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1658959200000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62b1b64ebcca0bbcb00e6e7d"
+  },
+  "id_booking": 16,
+  "first_name": "Andrew",
+  "last_name": "Yahut",
+  "email": "andrewyahutser@gmail.com",
+  "phone": "087721403050",
+  "hotel_id": "4",
+  "room_id": "255",
+  "person": {
+    "adult": "1",
+    "child": "1"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655848800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1656626400000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Cancelled",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1656799200000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62b1b768bcca0bbcb00e6e7f"
+  },
+  "id_booking": 17,
+  "first_name": "Andrew",
+  "last_name": "Yahut",
+  "email": "andrewyahutser@gmail.com",
+  "phone": "087721403050",
+  "hotel_id": "13",
+  "room_id": "277",
+  "person": {
+    "adult": "2",
+    "child": ""
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655848800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1657404000000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1657490400000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62b1b8d6bcca0bbcb00e6e83"
+  },
+  "id_booking": 18,
+  "first_name": "Andrew",
+  "last_name": "Yahut",
+  "email": "andrewyahutser@gmail.com",
+  "phone": "087721403050",
+  "hotel_id": "10",
+  "room_id": "763",
+  "person": {
+    "adult": "2",
+    "child": "1"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655762400000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1658700000000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Accepted",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1658786400000"
+    }
+  }
+},{
+  "_id": {
+    "$oid": "62b1babdbcca0bbcb00e6e84"
+  },
+  "id_booking": 19,
+  "first_name": "dimas",
+  "last_name": "renanda",
+  "email": "dimasrenanda@gmail.com",
+  "phone": "081812345645",
+  "hotel_id": "2",
+  "room_id": "301",
+  "person": {
+    "adult": "2",
+    "child": "3"
+  },
+  "date_booked": {
+    "$date": {
+      "$numberLong": "1655848800000"
+    }
+  },
+  "checkin_date": {
+    "$date": {
+      "$numberLong": "1656712800000"
+    }
+  },
+  "number_of_night": "1",
+  "booking_status": "Cancelled",
+  "special_req": "-",
+  "checkout_date": {
+    "$date": {
+      "$numberLong": "1656799200000"
+    }
+  }
 }]

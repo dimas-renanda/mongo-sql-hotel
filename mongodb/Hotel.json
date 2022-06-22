@@ -46,4 +46,68 @@
   "hotel_type": "Resort",
   "hotel_name": "Discovery",
   "country_code": "INA"
+},{
+  "_id": {
+    "$oid": "62ac62dea6bc8bda6e046878"
+  },
+  "hotel_id": 7,
+  "hotel_type": "Resort",
+  "hotel_name": "Mantappu",
+  "country_code": "INA"
+},{
+  "_id": {
+    "$oid": "62ad5363ad72f41d3000e3d8"
+  },
+  "hotel_id": 8,
+  "hotel_type": "Resort",
+  "hotel_name": "Pavillion",
+  "country_code": "INA"
+},{
+  "_id": {
+    "$oid": "62ad7409ad72f41d3000e3df"
+  },
+  "hotel_id": 9,
+  "hotel_type": "City",
+  "hotel_name": "Universe",
+  "country_code": "SGP"
+},{
+  "_id": {
+    "$oid": "62aeb3376fc2f6a63c01e71c"
+  },
+  "hotel_id": 10,
+  "hotel_type": "City",
+  "hotel_name": "Fueltron",
+  "country_code": "SGP"
+},{
+  "_id": {
+    "$oid": "62aeb34f6fc2f6a63c01e71d"
+  },
+  "hotel_id": 11,
+  "hotel_type": "City",
+  "hotel_name": "Cucucu",
+  "country_code": "MYS"
+},{
+  "_id": {
+    "$oid": "62aeb36b6fc2f6a63c01e71e"
+  },
+  "hotel_id": 12,
+  "hotel_type": "Resort",
+  "hotel_name": "Hotel del dimas",
+  "country_code": "FRA"
+},{
+  "_id": {
+    "$oid": "62aeb3826fc2f6a63c01e71f"
+  },
+  "hotel_id": 13,
+  "hotel_type": "Resort",
+  "hotel_name": "Sodeau",
+  "country_code": "INA"
+},{
+  "_id": {
+    "$oid": "62b04d5ba09df339cf0bc550"
+  },
+  "hotel_id": 14,
+  "hotel_type": "Resort",
+  "hotel_name": "BillaParadise",
+  "country_code": "CHN"
 }]
